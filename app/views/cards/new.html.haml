@@ -1,0 +1,10 @@
+%h4 Новая карточка:
+=form_for @card do |f|
+  .form-group
+    %label текст:
+    =f.text_field :original_text, class: 'form-control'
+  .form-group
+    %label перевод:
+    =f.text_field :translated_text, class: 'form-control'
+  .form-group  
+    =f.submit 'Сохранить карточку', class: 'btn btn-default'

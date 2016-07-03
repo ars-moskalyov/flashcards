@@ -1,0 +1,5 @@
+%h4 Все карточки:
+%ul
+  -@cards.each do |card|
+    %li
+      =card.original_text + ' - ' + card.translated_text

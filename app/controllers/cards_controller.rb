@@ -7,7 +7,7 @@ class CardsController < ApplicationController
   end
 
   def show
-    @card.update(review_date: Time.now)
+    @card.view
   end
 
   def new

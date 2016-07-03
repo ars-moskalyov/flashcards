@@ -7,14 +7,14 @@
       %th перевод
       %th просмотрена
   %tbody
-    -@cards.each_with_index do |card, i|
+    - @cards.each_with_index do |card, i|
       %tr
         %th
-          =i+1
+          = i+1
         %th
-          =card.original_text
+          = card.original_text
         %th
-          =card.translated_text
+          = card.translated_text
         %th
-          -if card.review_date
-            =card.review_date.strftime('%d/%m/%Y')
+          - if card.review_date
+            = card.review_date.strftime('%d/%m/%Y')

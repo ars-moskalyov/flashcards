@@ -10,6 +10,7 @@ ru:
       add_card: 'Добавить карточку'
       all_cards: 'Все карточки'
     card:
+      all_cards: 'Все карточки:'
       original_text: 'Текст'
       translated_text: 'Перевод'
       review_date: 'Дата пересмотра'

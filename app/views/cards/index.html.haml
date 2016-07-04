@@ -9,10 +9,10 @@
       %th
       %th
   %tbody
-    - @cards.each_with_index do |card, i|
+    - @cards.each.with_index(1) do |card, i|
       %tr
         %th
-          = i+1
+          = i
         %th
           = card.original_text
         %th

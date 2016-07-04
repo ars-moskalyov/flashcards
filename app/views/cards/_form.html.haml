@@ -1,5 +1,4 @@
 = simple_form_for @card do |f|
-  = f.input :original_text, label: 'Текст'
-  = f.input :translated_text, label: 'Перевод'
+  = f.input :original_text, label: 'Текст', error: false
+  = f.input :translated_text, label: 'Перевод', error: false
   = f.button :submit, 'Сохранить карточку'
-  

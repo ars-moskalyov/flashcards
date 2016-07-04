@@ -17,4 +17,7 @@
               %a{ :href => new_card_path } Добавить карточку
         %h3.text-muted Флэшкарточкер
       %hr
+      - if notice
+        .alert.alert-info
+          = notice
       = yield

@@ -1,3 +1,6 @@
+- if notice
+  .alert.alert-info
+    = notice
 %h4 Все карточки:
 %table.table.table-striped
   %thead
@@ -6,6 +9,8 @@
       %th текст
       %th перевод
       %th просмотрена
+      %th
+      %th
   %tbody
     - @cards.each_with_index do |card, i|
       %tr
@@ -18,3 +23,7 @@
         %th
           - if card.review_date
             = card.review_date.strftime('%d/%m/%Y')
+        %th
+          = link_to 'изменить', edit_card_path(card)
+        %th
+          = link_to 'удалить', card_path(card), method: :delete, data: { confirm: 'Are you sure?' }

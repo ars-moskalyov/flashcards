@@ -20,4 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  card:
+    create: 'Card was successfully created.'
+    update: 'Card was successfully updated.'
+    destroy: 'Card was successfully deleted.'

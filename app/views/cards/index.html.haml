@@ -1,0 +1,20 @@
+%h4 Все карточки:
+%table.table.table-striped
+  %thead
+    %tr
+      %th #
+      %th текст
+      %th перевод
+      %th просмотрена
+  %tbody
+    - @cards.each_with_index do |card, i|
+      %tr
+        %th
+          = i+1
+        %th
+          = card.original_text
+        %th
+          = card.translated_text
+        %th
+          - if card.review_date
+            = card.review_date.strftime('%d/%m/%Y')

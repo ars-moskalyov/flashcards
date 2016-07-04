@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'haml-rails', '~> 0.9.0'
+gem 'simple_form', '~> 3.2.1'
 
 gem 'pg', '~> 0.18.4'
 

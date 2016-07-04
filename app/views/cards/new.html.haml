@@ -5,12 +5,7 @@
         %li
           = item
 %h4 Новая карточка:
-= form_for @card do |f|
-  .form-group
-    %label текст:
-    = f.text_field :original_text, class: 'form-control'
-  .form-group
-    %label перевод:
-    = f.text_field :translated_text, class: 'form-control'
-  .form-group  
-    = f.submit 'Сохранить карточку', class: 'btn btn-default'
+= simple_form_for @card do |f|
+  = f.input :original_text, label: 'Текст'
+  = f.input :translated_text, label: 'Перевод'
+  = f.button :submit, 'Сохранить карточку'

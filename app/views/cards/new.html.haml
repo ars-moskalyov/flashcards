@@ -1,3 +1,9 @@
+- if @card.errors.any?
+  .alert.alert-danger
+    %ul
+      - @card.errors.full_messages.each do |item|
+        %li
+          = item
 %h4 Новая карточка:
 = form_for @card do |f|
   .form-group

@@ -15,8 +15,6 @@ class Card < ApplicationRecord
   end
 
   def set_review_date
-    unless self.review_date
-      self.review_date = Time.now + 3.days
-    end
+      self.review_date ||= Time.now + 3.days
   end
 end

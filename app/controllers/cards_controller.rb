@@ -7,7 +7,6 @@ class CardsController < ApplicationController
   end
 
   def show
-    @card.view
   end
 
   def new

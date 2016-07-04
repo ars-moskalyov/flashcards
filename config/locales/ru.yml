@@ -1,0 +1,20 @@
+ru:
+  controllers:
+    card:
+      create: 'Карточка добавлена.'
+      update: 'Карточка обновлена.'
+      destroy: 'Карточка удалена.'
+  views:
+    layout:
+      title: 'Флэшкарточкер'
+      add_card: 'Добавить карточку'
+      all_cards: 'Все карточки'
+    card:
+      original_text: 'Текст'
+      translated_text: 'Перевод'
+      review_date: 'Дата пересмотра'
+      edit: 'Редактировать'
+      delete: 'Удалить'
+      new_card: 'Новая карточка:'
+      edit_card: 'Изменить карточку:'
+      save_card: 'Сохранить карточку'

@@ -20,7 +20,7 @@ class CardsController < ApplicationController
     @card = Card.new(card_params)
 
     if @card.save
-      redirect_to cards_path, notice: I18n.t('card.create')
+      redirect_to cards_path, notice: I18n.t('controllers.card.create')
     else
       render :new
     end
@@ -30,7 +30,7 @@ class CardsController < ApplicationController
     @card.update(card_params)
 
     if @card.save
-      redirect_to cards_path, notice: I18n.t('card.update')
+      redirect_to cards_path, notice: I18n.t('controllers.card.update')
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class CardsController < ApplicationController
 
   def destroy
     @card.destroy
-    redirect_to cards_path, notice: I18n.t('card.destroy')
+    redirect_to cards_path, notice: I18n.t('controllers.card.destroy')
   end
 
   private

@@ -2,7 +2,8 @@
 %html
   %head
     %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }/
-    %title Flashcards
+    %title
+      = I18n.t('views.layout.title')
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
@@ -12,10 +13,13 @@
         %nav
           %ul.nav.nav-pills.pull-right
             %li
-              %a{ :href => cards_path } Все карточки
+              %a{ :href => cards_path } 
+                = I18n.t('views.layout.all_cards')
             %li
-              %a{ :href => new_card_path } Добавить карточку
-        %h3.text-muted Флэшкарточкер
+              %a{ :href => new_card_path }
+                = I18n.t('views.layout.add_card')
+        %h3.text-muted
+          = I18n.t('views.layout.title')
       %hr
       - if notice
         .alert.alert-info

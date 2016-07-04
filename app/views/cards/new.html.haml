@@ -4,5 +4,6 @@
       - @card.errors.full_messages.each do |item|
         %li
           = item
-%h4 Новая карточка:
+%h4
+  = I18n.t('views.card.new_card')
 = render 'form'

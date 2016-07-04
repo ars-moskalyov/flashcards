@@ -20,7 +20,22 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  card:
-    create: 'Card was successfully created.'
-    update: 'Card was successfully updated.'
-    destroy: 'Card was successfully deleted.'
+  conrtollers:
+    card:
+      create: 'Card was successfully created.'
+      update: 'Card was successfully updated.'
+      destroy: 'Card was successfully deleted.'
+  views:
+    layout:
+      title: 'Flashcards'
+      add_card: 'New card'
+      all_cards: 'All cards'
+    card:
+      original_text: 'Text'
+      translated_text: 'Translate'
+      review_date: 'Review date'
+      edit: 'Edit'
+      delete: 'Delete'
+      new_card: 'New card:'
+      edit_card: 'Edit card:'
+      save_card: 'Save card'

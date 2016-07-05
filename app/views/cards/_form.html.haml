@@ -1,0 +1,4 @@
+= simple_form_for @card do |f|
+  = f.input :original_text, label: I18n.t('views.card.original_text'), error: false
+  = f.input :translated_text, label: I18n.t('views.card.translated_text'), error: false
+  = f.button :submit, I18n.t('views.card.save_card')

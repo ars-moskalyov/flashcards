@@ -1,16 +1,22 @@
-%h4 Все карточки:
+%h4
+  = I18n.t('views.card.all_cards')
 %table.table.table-striped
   %thead
     %tr
       %th #
-      %th текст
-      %th перевод
-      %th просмотрена
+      %th
+        = I18n.t('views.card.original_text')
+      %th
+        = I18n.t('views.card.translated_text')
+      %th
+        = I18n.t('views.card.review_date')
+      %th
+      %th
   %tbody
-    - @cards.each_with_index do |card, i|
+    - @cards.each.with_index(1) do |card, i|
       %tr
         %th
-          = i+1
+          = i
         %th
           = card.original_text
         %th
@@ -18,3 +24,7 @@
         %th
           - if card.review_date
             = card.review_date.strftime('%d/%m/%Y')
+        %th
+          = link_to I18n.t('views.card.edit'), edit_card_path(card)
+        %th
+          = link_to I18n.t('views.card.delete'), card_path(card), method: :delete, data: { confirm: 'Are you sure?' }

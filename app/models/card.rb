@@ -1,5 +1,5 @@
 class Card < ApplicationRecord
-  before_validation :set_review_date
+  before_validation :set_review_date, on: :create
 
   validates :original_text, presence: true
   validates :translated_text, presence: true
@@ -15,6 +15,6 @@ class Card < ApplicationRecord
   end
 
   def set_review_date
-      self.review_date ||= Time.now + 3.days
+      self.review_date = Time.now + 3.days
   end
 end

@@ -15,7 +15,8 @@ end
 hh = Hash[*pair_words.flatten]
 
 
-hh.each do |k, v|
-  Card.create!(original_text: v,
-               translated_text: k)
+hh.each.with_index(1) do |(k, v), i|
+  Card.create!(original_text: v, translated_text: k)
+  print "\rCreated #{i} movies"
 end
+puts

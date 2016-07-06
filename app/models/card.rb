@@ -6,6 +6,8 @@ class Card < ApplicationRecord
   validates :review_date, presence: true
   validate :texts_must_be_diffirent
 
+  scope :review, lambda { where('review_date <= ?', Time.now).order("RANDOM()").first }
+
   private
 
   def texts_must_be_diffirent

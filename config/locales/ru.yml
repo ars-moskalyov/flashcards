@@ -4,11 +4,17 @@ ru:
       create: 'Карточка добавлена.'
       update: 'Карточка обновлена.'
       destroy: 'Карточка удалена.'
+    home:
+      correct: 'Правильно.'
+      wrong: 'Не правильно.'
   views:
     layout:
       title: 'Флэшкарточкер'
       add_card: 'Добавить карточку'
       all_cards: 'Все карточки'
+    home:
+      answer: 'Ответ'
+      no_cards: 'Все карточки просмотрены.'
     card:
       all_cards: 'Все карточки:'
       original_text: 'Текст'
@@ -19,3 +25,4 @@ ru:
       new_card: 'Новая карточка:'
       edit_card: 'Изменить карточку:'
       save_card: 'Сохранить карточку'
+      

@@ -1,52 +1,22 @@
-Card.create!(original_text: 'airport', translated_text: 'аэропорт')
-Card.create!(original_text: 'bar', translated_text: 'бар')
-Card.create!(original_text: 'brunette', translated_text: 'брюнет')
-Card.create!(original_text: 'budget', translated_text: 'бюджет')
-Card.create!(original_text: 'bust (sculpture)', translated_text: 'бюст')
-Card.create!(original_text: 'video', translated_text: 'видео')
-Card.create!(original_text: 'vodka', translated_text: 'водка')
-Card.create!(original_text: 'guitar', translated_text: 'гитара')
-Card.create!(original_text: 'jeans', translated_text: 'джинсы')
-Card.create!(original_text: 'jihad', translated_text: 'Джихад')
-Card.create!(original_text: 'director', translated_text: 'директор')
-Card.create!(original_text: 'Europe', translated_text: 'Европа')
-Card.create!(original_text: 'journalist', translated_text: 'журналист')
-Card.create!(original_text: 'zebra', translated_text: 'зебра')
-Card.create!(original_text: 'idea', translated_text: 'идея')
-Card.create!(original_text: 'Internet', translated_text: 'Интернет')
-Card.create!(original_text: 'cafe', translated_text: 'кафе')
-Card.create!(original_text: 'class', translated_text: 'класс')
-Card.create!(original_text: 'computer', translated_text: 'компьютер')
-Card.create!(original_text: 'lift (elevator)', translated_text: 'лифт')
-Card.create!(original_text: 'menu', translated_text: 'меню')
-Card.create!(original_text: 'music', translated_text: 'музыка')
-Card.create!(original_text: 'musician', translated_text: 'музыкант')
-Card.create!(original_text: 'number', translated_text: 'номер')
-Card.create!(original_text: 'ocean', translated_text: 'океан')
-Card.create!(original_text: 'opera', translated_text: 'опера')
-Card.create!(original_text: 'parachute', translated_text: 'парашют')
-Card.create!(original_text: 'passport', translated_text: 'паспорт')
-Card.create!(original_text: 'president', translated_text: 'президент')
-Card.create!(original_text: 'radiation', translated_text: 'радиация')
-Card.create!(original_text: 'robot', translated_text: 'робот')
-Card.create!(original_text: 'rocker', translated_text: 'рокер')
-Card.create!(original_text: 'sandals', translated_text: 'сандали')
-Card.create!(original_text: 'sex', translated_text: 'секс')
-Card.create!(original_text: 'student', translated_text: 'студент')
-Card.create!(original_text: 'subject', translated_text: 'субъект')
-Card.create!(original_text: 'television', translated_text: 'телевизор')
-Card.create!(original_text: 'telephone', translated_text: 'телефон')
-Card.create!(original_text: 'hurrah', translated_text: 'ура')
-Card.create!(original_text: 'film (movie)', translated_text: 'фильм')
-Card.create!(original_text: 'football (soccer)', translated_text: 'футбол')
-Card.create!(original_text: 'hockey', translated_text: 'хоккей')
-Card.create!(original_text: 'centre', translated_text: 'центр')
-Card.create!(original_text: 'circus', translated_text: 'цирк')
-Card.create!(original_text: 'champion', translated_text: 'чемпион')
-Card.create!(original_text: 'chocolate', translated_text: 'шоколад')
-Card.create!(original_text: 'shorts', translated_text: 'шорты')
-Card.create!(original_text: 'chauffeur', translated_text: 'шофёр')
-Card.create!(original_text: 'exam', translated_text: 'экзамен')
-Card.create!(original_text: 'humour', translated_text: 'юмор')
-Card.create!(original_text: 'lawyer', translated_text: 'юрист')
-Card.create!(original_text: 'yacht', translated_text: 'яхта')
+require 'open-uri'
+require 'nokogiri'
+
+url = 'http://russian.languagedaily.com/wordsandphrases/russian-cognates'
+html = open(url)
+
+page = Nokogiri::HTML(html)
+words = page.css('.jsn-article-content')
+words = words.css('li').map { |tag| tag.text }
+
+pair_words = words.map do |item|
+  item.split('---').map(&:strip)
+end
+
+hh = Hash[*pair_words.flatten]
+
+
+hh.each.with_index(1) do |(k, v), i|
+  Card.create!(original_text: v, translated_text: k)
+  print "\rCreated #{i} movies"
+end
+puts

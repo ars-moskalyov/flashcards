@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   def create
     @card = Card.find(home_params[:card_id])
-    if @card.original_text.mb_chars.downcase == home_params[:answer].strip.mb_chars.downcase
+    if check_answer?
       @card.update(review_date: Time.now + 3.days)
       redirect_to root_path, notice: t('controllers.home.correct')
     else
@@ -14,6 +14,10 @@ class HomeController < ApplicationController
   end
 
   private
+
+  def check_answer?
+    @card.original_text.mb_chars.downcase == home_params[:answer].strip.mb_chars.downcase
+  end
 
   def home_params
     params.require(:home).permit(:answer, :card_id)

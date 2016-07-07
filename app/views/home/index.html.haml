@@ -1,5 +1,5 @@
 #card
-  - if @card.class == Card
+  - if cards_to_review?
     %h3
       %b
         = @card.translated_text.capitalize

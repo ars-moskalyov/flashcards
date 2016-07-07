@@ -4,7 +4,7 @@
       %b
         = @card.translated_text.capitalize
     %br
-    = simple_form_for :home, url: root_path do |f|
+    = simple_form_for :trainer, url: trainer_review_path do |f|
       = f.input :answer, label: false
       = f.hidden_field :card_id, value: @card.id
       = f.button :submit, I18n.t('views.home.answer')

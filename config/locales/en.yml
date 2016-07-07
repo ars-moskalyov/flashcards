@@ -4,7 +4,7 @@ en:
       create: 'Card was successfully created.'
       update: 'Card was successfully updated.'
       destroy: 'Card was successfully deleted.'
-    home:
+    trainer:
       correct: 'Correctly'
       wrong: 'Wrong'
   views:

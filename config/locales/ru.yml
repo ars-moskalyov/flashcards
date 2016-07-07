@@ -4,7 +4,7 @@ ru:
       create: 'Карточка добавлена.'
       update: 'Карточка обновлена.'
       destroy: 'Карточка удалена.'
-    home:
+    trainer:
       correct: 'Правильно.'
       wrong: 'Не правильно.'
   views:

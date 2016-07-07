@@ -6,7 +6,7 @@ class Card < ApplicationRecord
   validates :review_date, presence: true
   validate :texts_must_be_diffirent
 
-  scope :review, lambda { where('review_date >= ?', Time.now).order("RANDOM()").first }
+  scope :review, lambda { where('review_date <= ?', Time.now).order("RANDOM()").first }
 
   def new_review_date!
     update(review_date: Time.now + 3.days)

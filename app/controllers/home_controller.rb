@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   def create
     @card = Card.find(home_params[:card_id])
     if check_answer?
-      @card.update(review_date: Time.now + 3.days)
+      @card.set_review_date
       redirect_to root_path, notice: t('controllers.home.correct')
     else
       redirect_to root_path, notice: t('controllers.home.wrong')

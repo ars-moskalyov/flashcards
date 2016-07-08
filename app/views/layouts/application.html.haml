@@ -19,7 +19,7 @@
               %a{ :href => new_card_path }
                 = I18n.t('views.layout.add_card')
         %h3.text-muted
-          = I18n.t('views.layout.title')
+          = link_to I18n.t('views.layout.title'), root_path
       %hr
       - if notice
         .alert.alert-info

@@ -4,11 +4,17 @@ en:
       create: 'Card was successfully created.'
       update: 'Card was successfully updated.'
       destroy: 'Card was successfully deleted.'
+    trainer:
+      correct: 'Correctly'
+      wrong: 'Wrong'
   views:
     layout:
       title: 'Flashcards'
       add_card: 'New card'
       all_cards: 'All cards'
+    home:
+      answer: 'Answer'
+      no_cards: 'All cards are viewed.'
     card:
       all_cards: 'All cards:'
       original_text: 'Text'

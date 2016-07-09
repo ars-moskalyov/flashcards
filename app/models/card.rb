@@ -1,5 +1,6 @@
 class Card < ApplicationRecord
   before_validation :set_review_date, on: :create
+  before_validation :remove_whitespace
 
   validates :original_text, presence: true
   validates :translated_text, presence: true
@@ -31,7 +32,7 @@ class Card < ApplicationRecord
 
   def texts_must_be_diffirent
     if original_text && translated_text
-      if original_text.strip.mb_chars.downcase == translated_text.strip.mb_chars.downcase
+      if original_text.mb_chars.downcase == translated_text.mb_chars.downcase
         errors.add(:texts, 'must be different')
       end
     end
@@ -39,5 +40,12 @@ class Card < ApplicationRecord
 
   def set_review_date
     self.review_date = Time.now + 3.days
+  end
+
+  def remove_whitespace
+    if original_text && translated_text
+     self.original_text = self.original_text.strip
+     self.translated_text = self.translated_text.strip
+    end
   end
 end

@@ -6,9 +6,9 @@ class Card < ApplicationRecord
   validates :review_date, presence: true
   validate :texts_must_be_diffirent
 
-  scope :review, lambda { where('review_date >= ?', Time.now).order("RANDOM()") }
+  scope :review, lambda { where('review_date <= ?', Time.now).order("RANDOM()") }
 
-  def chek_answer(answer)
+  def check_answer(answer)
     if original_text.mb_chars.downcase == answer.strip.mb_chars.downcase
       touch_review_date!
       Result.new(:ok)
@@ -30,8 +30,10 @@ class Card < ApplicationRecord
   end
 
   def texts_must_be_diffirent
-    if original_text.mb_chars.downcase == translated_text.mb_chars.downcase
-      errors.add(:texts, 'must be different')
+    if original_text && translated_text
+      if original_text.strip.mb_chars.downcase == translated_text.strip.mb_chars.downcase
+        errors.add(:texts, 'must be different')
+      end
     end
   end
 

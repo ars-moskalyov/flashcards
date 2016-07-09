@@ -12,7 +12,7 @@ describe :card do
     it { should validate_presence_of :original_text }
     it { should validate_presence_of :translated_text }
 
-    { identity: "rr",whitespaces: "rr\n",caps: "RR" }.each do |k, v|
+    { identity: "rr", whitespaces: "rr\n", caps: "RR" }.each do |k, v|
       it "validate texts #{k}" do
         card = build(:card, original_text: "rr",translated_text: v)
         expect(card.valid?).to be_falsey

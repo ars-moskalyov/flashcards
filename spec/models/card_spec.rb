@@ -32,8 +32,10 @@ describe :card do
     end
 
     it "check right answer" do
-      result = card.check_answer('original text')
-      expect(result.success?).to be_truthy
+      ['original text', 'OriGinal teXt', 'Original teXt  '].each do |answer|
+        result = card.check_answer(answer)
+        expect(result.success?).to be_truthy
+      end
     end
 
     it "check wrong answer" do

@@ -12,7 +12,7 @@ describe :card do
     it { should validate_presence_of :original_text }
     it { should validate_presence_of :translated_text }
 
-    { identity: "rr", whitespaces: "rr\n", caps: "RR" }.each do |k, v|
+    { identity: "rr", upcase: "RR" }.each do |k, v|
       it "validate texts #{k}" do
         card = build(:card, original_text: "rr",translated_text: v)
         expect(card.valid?).to be_falsey
@@ -24,7 +24,6 @@ describe :card do
   describe "methods tests" do
     let(:card) { create(:card) }
 
-    # !!! нужно ли его тестировать?  или совместить с check answer
     it "touch new review date" do
       time = card.review_date
       card.send(:touch_review_date!)
@@ -52,12 +51,27 @@ describe :card do
       expect(Card.review.first.review_date).to eq(date)
       expect(Card.review.size).to eq(10)
     end
+  end
 
+  describe "before validation" do
     it "set review date to new object on create" do
       card = build(:card)
       expect(card.review_date).to be_nil
       card.save
       expect(card.review_date).to be_truthy
-    end    
+    end
+
+    it "remove whitespace on create" do
+      card = create(:card, original_text: '   d', translated_text: 'h   ')
+      expect(card.original_text).to eq('d')
+      expect(card.translated_text).to eq('h')
+    end
+
+    it "remove whitespace on update" do
+      card = create(:card)
+      card.update(original_text: '   d', translated_text: 'h   ')
+      expect(card.original_text).to eq('d')
+      expect(card.translated_text).to eq('h')
+    end
   end
 end

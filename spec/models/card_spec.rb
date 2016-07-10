@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe :card do
-
   it "should have valid factory" do
     expect(build(:card)).to be_valid
   end
@@ -24,28 +23,30 @@ describe :card do
   describe "methods tests" do
     let(:card) { create(:card) }
 
-    it "touch new review date" do
+    it "touch review date!" do
       time = card.review_date
       card.send(:touch_review_date!)
       expect(card.review_date).not_to eq(time)
     end
 
-    it "check right answer" do
-      ['original text', 'OriGinal teXt', 'Original teXt  '].each do |answer|
-        result = card.check_answer(answer)
-        expect(result.success?).to be_truthy
+    context "it check answer" do
+      it "correct answers" do
+        ['original text', 'OriGinal teXt', 'Original teXt  '].each do |answer|
+          result = card.check_answer(answer)
+          expect(result.success?).to be_truthy
+        end
       end
-    end
 
-    it "check wrong answer" do
-      result = card.check_answer('wrong text')
-      expect(result.success?).to be_falsey
+      it "wrong answer" do
+        result = card.check_answer('wrong text')
+        expect(result.success?).to be_falsey
+      end
     end
 
     it "gives cards to review" do
       date = Time.now
       10.times do |i|
-        c = FactoryGirl.create(:card)
+        c = create(:card)
         c.update(review_date: date)
       end
       expect(Card.review.first.review_date).to eq(date)
@@ -57,7 +58,7 @@ describe :card do
     it "set review date to new object on create" do
       card = build(:card)
       expect(card.review_date).to be_nil
-      card.save
+      card.valid?
       expect(card.review_date).to be_truthy
     end
 

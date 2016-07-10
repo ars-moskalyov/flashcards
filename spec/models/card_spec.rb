@@ -44,12 +44,9 @@ describe :card do
     end
 
     it "gives cards to review" do
-      date = Time.now
       10.times do |i|
-        c = create(:card)
-        c.update(review_date: date)
+        create(:card_for_review)
       end
-      expect(Card.review.first.review_date).to eq(date)
       expect(Card.review.size).to eq(10)
     end
   end

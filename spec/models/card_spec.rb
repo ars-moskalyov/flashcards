@@ -29,7 +29,7 @@ describe :card do
       expect(card.review_date).not_to eq(time)
     end
 
-    context "it check answer" do
+    context "it #check answer" do
       it "correct answers" do
         ['original text', 'OriGinal teXt', 'Original teXt  '].each do |answer|
           result = card.check_answer(answer)

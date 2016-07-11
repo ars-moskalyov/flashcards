@@ -1,7 +1,7 @@
 class TrainerController < ApplicationController
   def review
     @card = Card.find(trainer_params[:card_id])
-    result = @card.chek_answer(trainer_params[:answer])
+    result = @card.check_answer(trainer_params[:answer])
     if result.success?
       redirect_to root_path, notice: t('controllers.trainer.correct')
     else

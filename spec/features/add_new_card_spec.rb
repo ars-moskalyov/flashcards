@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'add new card' do
-  scenario 'good' do #title!!!
+  scenario 'all fields are filled' do
     visit new_card_path
     fill_in 'card[original_text]', with: 'original text'
     fill_in 'card[translated_text]', with: 'translated text'
@@ -10,9 +10,11 @@ feature 'add new card' do
     expect(page).to have_content 'original text translated text'
   end
 
-    scenario 'false' do #title!!!
+    scenario 'the translated text field is not filled' do
     visit new_card_path
+    fill_in 'card[original_text]', with: 'original text'
     click_button I18n.t('views.card.save_card')
-    expect(page).to have_content "Original Translated text can't be blank"
+    expect(page).to have_content I18n.t('views.card.new_card')
+    expect(page).to have_content I18n.t('errors.messages.blank')
   end
 end 

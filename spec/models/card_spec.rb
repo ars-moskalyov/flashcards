@@ -43,7 +43,7 @@ describe :card do
       end
     end
 
-    it "gives cards to review" do
+    it ".review" do
       10.times do |i|
         create(:card_for_review)
       end

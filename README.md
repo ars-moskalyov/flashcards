@@ -1,24 +1,9 @@
-# README
+# Flashcards
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Build Status](https://travis-ci.org/ars-moskalyov/flashcards.svg?branch=task7)](https://travis-ci.org/ars-moskalyov/flashcards)
 
-Things you may want to cover:
+This is the sample application for [mkdev.me - RoR course](https://mkdev.me/courses/ruby-on-rails-dlya-samyh-malenkih)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##Dependencies
+* Ruby 2.3.1
+* Rails 5.0.0

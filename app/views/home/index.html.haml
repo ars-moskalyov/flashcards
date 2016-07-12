@@ -1,13 +1,16 @@
-#card
-  - if @card.first
-    %h3
-      %b
-        = @card.first.translated_text.capitalize
-    %br
-    = simple_form_for :trainer, url: trainer_review_path do |f|
-      = f.input :answer, label: false
-      = f.hidden_field :card_id, value: @card.first.id
-      = f.button :submit, I18n.t('views.home.answer')
-  - else
-    %h3
-      = t('views.home.no_cards')
+- if current_user
+  #card
+    - if @card.first
+      %h3
+        %b
+          = @card.first.translated_text.capitalize
+      %br
+      = simple_form_for :trainer, url: trainer_review_path do |f|
+        = f.input :answer, label: false
+        = f.hidden_field :card_id, value: @card.first.id
+        = f.button :submit, I18n.t('views.home.answer')
+    - else
+      %h3
+        = t('views.home.no_cards')
+- else
+  %h3 simple flashcards app

@@ -1,7 +1,10 @@
 class Card < ApplicationRecord
+  belongs_to :user
+
   before_validation :set_review_date, on: :create
   before_validation :remove_whitespace
 
+  validates :user, presence: true
   validates :original_text, presence: true
   validates :translated_text, presence: true
   validates :review_date, presence: true

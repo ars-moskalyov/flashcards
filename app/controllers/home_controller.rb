@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @card = Card.review
+    if current_user
+      @card = Card.review(current_user.id)
+    end
   end
 end

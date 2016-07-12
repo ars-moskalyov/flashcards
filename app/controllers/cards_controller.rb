@@ -1,9 +1,9 @@
 class CardsController < ApplicationController
-
+  before_action :require_login
   before_action :set_card, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cards = Card.all
+    @cards = Card.where(user_id: current_user.id)
   end
 
   def show
@@ -49,6 +49,7 @@ class CardsController < ApplicationController
 
   def card_params
     params.require(:card).permit(:original_text,
-                                 :translated_text)
+                                 :translated_text,
+                                 :user_id)
   end
 end

@@ -7,11 +7,20 @@ en:
     trainer:
       correct: 'Correctly'
       wrong: 'Wrong'
+    user:
+      created: 'User created.'
+    user_session:
+      login_s: 'Login successful.'
+      login_f: 'Login failed.'
+      logout: 'Logged out.'
   views:
     layout:
       title: 'Flashcards'
       add_card: 'New card'
       all_cards: 'All cards'
+      logout: 'Logout'
+      register: 'Register'
+      login: 'Login'
     home:
       answer: 'Answer'
       no_cards: 'All cards are viewed.'
@@ -25,3 +34,8 @@ en:
       new_card: 'New card:'
       edit_card: 'Edit card:'
       save_card: 'Save card'
+    user:
+      email: 'Email'
+      password: 'Password'
+      password_confirmation: 'Confirm password'
+      save_user: 'Sign Up'

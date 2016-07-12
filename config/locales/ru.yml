@@ -6,12 +6,21 @@ ru:
       destroy: 'Карточка удалена.'
     trainer:
       correct: 'Правильно.'
-      wrong: 'Не правильно.'
+      wrong: 'Неправильно.'
+    user:
+      created: 'User created.'     #!!!!
+    user_session:
+      login_s: 'Login successful.' #!!!!
+      login_f: 'Login failed.'     #!!!!
+      logout: 'Logged out.'        #!!!!
   views:
     layout:
       title: 'Флэшкарточкер'
       add_card: 'Добавить карточку'
       all_cards: 'Все карточки'
+      logout: 'Выйти'
+      register: 'Регистрация'
+      login: 'Вход'
     home:
       answer: 'Ответ'
       no_cards: 'Все карточки просмотрены.'
@@ -25,4 +34,9 @@ ru:
       new_card: 'Новая карточка:'
       edit_card: 'Изменить карточку:'
       save_card: 'Сохранить карточку'
+    user:
+      email: 'Email'
+      password: 'Пароль'
+      password_confirmation: 'Подтверждение пароля'
+      save_user: 'Зарегистрироваться'
       

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'review card on home page' do
-
   context 'registred user' do
     before(:each) do
       @user = create(:user, email: 'qqq@www')

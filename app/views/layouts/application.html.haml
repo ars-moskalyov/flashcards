@@ -21,7 +21,7 @@
                 = link_to I18n.t('views.layout.logout'), :logout, method: :post
             - else
               %li
-                = link_to I18n.t('views.layout.register'), new_user_path
+                = link_to I18n.t('views.layout.register'), new_registration_path
               %li
                 = link_to I18n.t('views.layout.login'), :login
         %h3.text-muted

@@ -7,7 +7,7 @@ ru:
     trainer:
       correct: 'Правильно.'
       wrong: 'Неправильно.'
-    user:
+    registration:
       created: 'User created.'     #!!!!
     session:
       login_s: 'Login successful.' #!!!!
@@ -34,6 +34,8 @@ ru:
       new_card: 'Новая карточка:'
       edit_card: 'Изменить карточку:'
       save_card: 'Сохранить карточку'
+    registration:
+      save_user: 'Зарегистрироваться'
     user:
       email: 'Email'
       password: 'Пароль'

@@ -44,4 +44,6 @@ ru:
       password: 'Пароль'
       password_confirmation: 'Подтверждение пароля'
       save: 'Сохранить'
+    session:
+      sign_in: 'Войти'
       

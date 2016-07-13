@@ -5,7 +5,7 @@ feature 'add new card' do
     @user = create(:user, email: 'qqq@www')
     login('qqq@www', 'password')
   end
-  
+
   scenario 'all fields are filled' do
     visit new_card_path
     fill_in 'card[original_text]', with: 'original text'
@@ -15,7 +15,7 @@ feature 'add new card' do
     expect(page).to have_content 'original text translated text'
   end
 
-    scenario 'the translated text field is not filled' do
+  scenario 'the translated text field is not filled' do
     visit new_card_path
     fill_in 'card[original_text]', with: 'original text'
     click_button I18n.t('views.card.save_card')

@@ -13,6 +13,8 @@ en:
       login_s: 'Login successful.'
       login_f: 'Login failed.'
       logout: 'Logged out.'
+    user:
+      updated: 'Profile was successfully updated.'
   views:
     layout:
       title: 'Flashcards'
@@ -21,6 +23,7 @@ en:
       logout: 'Logout'
       register: 'Register'
       login: 'Login'
+      edit_user: 'Edit profile'
     home:
       answer: 'Answer'
       no_cards: 'All cards are viewed.'
@@ -37,7 +40,7 @@ en:
     registration:
       save_user: 'Sign Up'      
     user:
-      email: 'Email'
-      password: 'Password'
-      password_confirmation: 'Confirm password'
-
+      email: 'Email:'
+      password: 'Password:'
+      password_confirmation: 'Confirm password:'
+      save: 'Save'

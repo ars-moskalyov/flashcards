@@ -4,8 +4,8 @@
       - @user.errors.full_messages.each do |item|
         %li
           = item
-= simple_form_for @user do |f|
+= simple_form_for @user, url: users_path do |f|
   = f.input :email, label: I18n.t('views.user.email'), error: false
   = f.input :password, label: I18n.t('views.user.password'), error: false
   = f.input :password_confirmation, label: I18n.t('views.user.password_confirmation'), error: false
-  = f.button :submit, I18n.t('views.user.save_user')
+  = f.button :submit, I18n.t('views.user.save')

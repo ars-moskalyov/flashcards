@@ -13,6 +13,8 @@ ru:
       login_s: 'Login successful.' #!!!!
       login_f: 'Login failed.'     #!!!!
       logout: 'Logged out.'        #!!!!
+    user:
+      updated: 'Profile was successfully updated.' #!!!!!!
   views:
     layout:
       title: 'Флэшкарточкер'
@@ -21,6 +23,7 @@ ru:
       logout: 'Выйти'
       register: 'Регистрация'
       login: 'Вход'
+      edit_user: 'Профиль' 
     home:
       answer: 'Ответ'
       no_cards: 'Все карточки просмотрены.'
@@ -40,5 +43,5 @@ ru:
       email: 'Email'
       password: 'Пароль'
       password_confirmation: 'Подтверждение пароля'
-      save_user: 'Зарегистрироваться'
+      save: 'Сохранить'
       

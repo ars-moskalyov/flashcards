@@ -9,7 +9,7 @@ ru:
       wrong: 'Неправильно.'
     user:
       created: 'User created.'     #!!!!
-    user_session:
+    session:
       login_s: 'Login successful.' #!!!!
       login_f: 'Login failed.'     #!!!!
       logout: 'Logged out.'        #!!!!

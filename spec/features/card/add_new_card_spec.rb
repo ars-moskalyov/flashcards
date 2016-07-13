@@ -5,6 +5,7 @@ feature 'add new card' do
     @user = create(:user, email: 'qqq@www')
     login('qqq@www', 'password')
   end
+  
   scenario 'all fields are filled' do
     visit new_card_path
     fill_in 'card[original_text]', with: 'original text'

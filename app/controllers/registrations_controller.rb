@@ -1,11 +1,11 @@
 class RegistrationsController < ApplicationController
   def new
-    @new_user = User.new
+    @user = User.new
   end
 
   def create
-    @new_user = User.new(registration_params)
-    if @new_user.save
+    @user = User.new(registration_params)
+    if @user.save
       login(registration_params[:email], registration_params[:password])
       redirect_to root_path, notice: I18n.t('controllers.registration.created')
     else

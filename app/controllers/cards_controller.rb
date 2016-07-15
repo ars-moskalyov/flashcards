@@ -18,6 +18,7 @@ class CardsController < ApplicationController
 
   def create
     @card = current_user.cards.new(card_params)
+    download_image
 
     if @card.save
       redirect_to cards_path, notice: I18n.t('controllers.card.create')
@@ -28,6 +29,7 @@ class CardsController < ApplicationController
 
   def update
     @card.update(card_params)
+    download_image
 
     if @card.save
       redirect_to cards_path, notice: I18n.t('controllers.card.update')
@@ -43,11 +45,17 @@ class CardsController < ApplicationController
 
   private
 
+  def download_image
+    if card_params[:remote_url]
+      @card.download_image
+    end
+  end
+
   def set_card
     @card = current_user.cards.find(params[:id])
   end
 
   def card_params
-    params.require(:card).permit(:original_text, :translated_text, :image)
+    params.require(:card).permit(:original_text, :translated_text, :image, :remote_url)
   end
 end

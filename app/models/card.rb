@@ -13,6 +13,11 @@ class Card < ApplicationRecord
   scope :review, -> (user) { where('review_date <= ? AND user_id = ?', Time.now, user).order("RANDOM()") }
 
   mount_uploader :image, ImageUploader
+  attr_accessor :remote_url
+
+  def download_image
+    self.remote_image_url = remote_url
+  end
 
   def check_answer(answer)
     if original_text.mb_chars.downcase == answer.strip.mb_chars.downcase

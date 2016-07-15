@@ -2,7 +2,7 @@
   #card
     - if @card.first
       %p
-        = image_tag @card.first.image
+        = image_tag @card.first.image_url if @card.first.image?
       %h3
         %b
           = @card.first.translated_text.capitalize

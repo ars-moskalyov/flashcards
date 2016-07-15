@@ -31,6 +31,7 @@ en:
       all_cards: 'All cards:'
       original_text: 'Text'
       translated_text: 'Translate'
+      image: 'Image'
       review_date: 'Review date'
       edit: 'Edit'
       delete: 'Delete'

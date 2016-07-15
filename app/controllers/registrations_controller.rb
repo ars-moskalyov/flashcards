@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-  before_action :unauthorized_user
+  before_action :unsigned
 
   def new
     @user = User.new

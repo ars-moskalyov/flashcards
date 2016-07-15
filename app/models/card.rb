@@ -1,6 +1,10 @@
 class Card < ApplicationRecord
   belongs_to :user
 
+  mount_uploader :image, ImageUploader
+  
+  attr_accessor :remote_url
+
   before_validation :set_review_date, on: :create
   before_validation :remove_whitespace
 
@@ -11,9 +15,6 @@ class Card < ApplicationRecord
   validate :texts_must_be_diffirent
 
   scope :review, -> (user) { where('review_date <= ? AND user_id = ?', Time.now, user).order("RANDOM()") }
-
-  mount_uploader :image, ImageUploader
-  attr_accessor :remote_url
 
   def download_image
     self.remote_image_url = remote_url

@@ -11,7 +11,13 @@ feature 'review card on home page' do
 
     scenario 'card to review exists' do
       visit root_path
+      expect(page).to have_css("img[src*='#{card.image_url}']")
       expect(page).to have_content card.translated_text.capitalize
+    end
+
+    scenario 'card image on review' do
+      visit root_path
+      expect(page).to have_css("img[src*='#{card.image_url}']")
     end
 
     scenario 'no cards to review' do

@@ -1,0 +1,4 @@
+= simple_form_for :session, :url => sessions_path do |f|
+  = f.input :email, label: I18n.t('views.user.email'), error: false
+  = f.input :password, label: I18n.t('views.user.password'), error: false
+  = f.button :submit, I18n.t('views.session.sign_in')

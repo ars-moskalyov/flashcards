@@ -1,4 +1,6 @@
 class TrainerController < ApplicationController
+  before_action :require_login
+  
   def review
     @card = Card.find(trainer_params[:card_id])
     result = @card.check_answer(trainer_params[:answer])

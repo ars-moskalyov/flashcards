@@ -12,12 +12,20 @@
       .header
         %nav
           %ul.nav.nav-pills.pull-right
-            %li
-              %a{ :href => cards_path } 
-                = I18n.t('views.layout.all_cards')
-            %li
-              %a{ :href => new_card_path }
-                = I18n.t('views.layout.add_card')
+            - if current_user
+              %li
+                = link_to I18n.t('views.layout.all_cards'), cards_path
+              %li
+                = link_to I18n.t('views.layout.add_card'), new_card_path
+              %li
+                = link_to I18n.t('views.layout.edit_user'), edit_users_path
+              %li
+                = link_to I18n.t('views.layout.logout'), :logout, method: :post
+            - else
+              %li
+                = link_to I18n.t('views.layout.register'), new_registration_path
+              %li
+                = link_to I18n.t('views.layout.login'), :login
         %h3.text-muted
           = link_to I18n.t('views.layout.title'), root_path
       %hr

@@ -1,0 +1,11 @@
+- if @user.errors.any?
+  .alert.alert-danger
+    %ul
+      - @user.errors.full_messages.each do |item|
+        %li
+          = item
+= simple_form_for :registration, url: registration_path do |f|
+  = f.input :email, label: I18n.t('views.user.email'), error: false
+  = f.input :password, label: I18n.t('views.user.password'), error: false
+  = f.input :password_confirmation, label: I18n.t('views.user.password_confirmation'), error: false
+  = f.button :submit, I18n.t('views.registration.save_user')

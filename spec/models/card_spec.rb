@@ -26,7 +26,7 @@ RSpec.describe Card, type: :model do
   describe 'methods tests' do
     let(:card) { create(:card) }
 
-    it 'download image' do
+    it '#download image' do
       card = Card.new(original_text: 'aaa',
                       translated_text: 'bbb',
                       remote_url: 'http://s.bash.im/logo.gif')

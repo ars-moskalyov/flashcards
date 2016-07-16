@@ -10,6 +10,7 @@
         = I18n.t('views.deck.description')
       %th
       %th
+      %th
   %tbody
     - @decks.each.with_index(1) do |deck, i|
       %tr
@@ -19,6 +20,8 @@
           = link_to deck.title, deck_cards_path(deck)
         %th
           = deck.description
+        %th
+          = deck.id == current_user.default_deck ? 'Default' : link_to( 'Set default', deck_set_default_path(deck.id), method: :post)
         %th
           = link_to I18n.t('views.deck.edit'), edit_deck_path(deck)
         %th

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :decks do
     resources :cards, only: [:index, :new, :create]
+    post 'set_default'
   end
   resources :cards, only: [:edit, :update, :destroy]
 

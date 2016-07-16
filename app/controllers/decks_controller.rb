@@ -38,6 +38,11 @@ class DecksController < ApplicationController
     redirect_to decks_path, notice: I18n.t('controllers.deck.destroy')
   end
 
+  def set_default
+    current_user.update!(default_deck: params[:deck_id])
+    redirect_to decks_path, notice: 'deck set'
+  end
+
   private
 
   def set_deck

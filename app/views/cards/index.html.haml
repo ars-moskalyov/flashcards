@@ -5,6 +5,7 @@
     %tr
       %th #
       %th
+      %th
         = I18n.t('views.card.original_text')
       %th
         = I18n.t('views.card.translated_text')
@@ -17,6 +18,8 @@
       %tr
         %th
           = i
+        %th
+          = image_tag card.image_url(:thumb) if card.image?
         %th
           = card.original_text
         %th

@@ -31,6 +31,8 @@ ru:
       all_cards: 'Все карточки:'
       original_text: 'Текст'
       translated_text: 'Перевод'
+      image_url: 'Image url'    #!!!!!!!!!!
+      image: 'Картинка'
       review_date: 'Дата пересмотра'
       edit: 'Редактировать'
       delete: 'Удалить'

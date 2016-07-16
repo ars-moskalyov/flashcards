@@ -48,6 +48,6 @@ class CardsController < ApplicationController
   end
 
   def card_params
-    params.require(:card).permit(:original_text, :translated_text,)
+    params.require(:card).permit(:original_text, :translated_text, :image, :remote_image_url)
   end
 end

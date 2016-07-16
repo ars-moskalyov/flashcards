@@ -1,6 +1,8 @@
 class Card < ApplicationRecord
   belongs_to :user
 
+  mount_uploader :image, ImageUploader
+
   before_validation :set_review_date, on: :create
   before_validation :remove_whitespace
 

@@ -1,0 +1,4 @@
+aws_access_key_id: 'DDDD'
+aws_secret_access_key: 'ZZZZ'
+aws_region: 'us-west-2'
+aws_bucket: 'FFFF'

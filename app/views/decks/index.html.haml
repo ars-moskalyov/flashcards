@@ -1,0 +1,25 @@
+%h4
+  = I18n.t('views.deck.all_decks')
+%table.table.table-striped
+  %thead
+    %tr
+      %th #
+      %th
+        = I18n.t('views.deck.title')
+      %th
+        = I18n.t('views.deck.description')
+      %th
+      %th
+  %tbody
+    - @decks.each.with_index(1) do |deck, i|
+      %tr
+        %th
+          = i
+        %th
+          = deck.title
+        %th
+          = deck.description
+        %th
+          = link_to I18n.t('views.deck.edit'), edit_deck_path(deck)
+        %th
+          = link_to I18n.t('views.deck.delete'), deck_path(deck), method: :delete, data: { confirm: 'Are you sure?' }

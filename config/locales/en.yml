@@ -1,5 +1,9 @@
 en:
   controllers:
+    deck:
+      create: 'Deck was successfully created.'
+      update: 'Deck was successfully updated.'
+      destroy: 'Deck was successfully deleted.'
     card:
       create: 'Card was successfully created.'
       update: 'Card was successfully updated.'
@@ -27,6 +31,15 @@ en:
     home:
       answer: 'Answer'
       no_cards: 'All cards are viewed.'
+    deck:
+      all_decks: 'All decks:'
+      title: 'Title'
+      description: 'Description'
+      edit: 'Edit'
+      delete: 'Delete'
+      new_deck: 'New deck:'
+      edit_deck: 'Edit deck:'
+      save_deck: 'Save deck'
     card:
       all_cards: 'All cards:'
       original_text: 'Text'

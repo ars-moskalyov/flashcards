@@ -1,0 +1,4 @@
+= simple_form_for @deck do |f|
+  = f.input :title, label: I18n.t('views.deck.title'), error: false
+  = f.input :description, label: I18n.t('views.deck.description'), error: false
+  = f.button :submit, I18n.t('views.deck.save_deck')

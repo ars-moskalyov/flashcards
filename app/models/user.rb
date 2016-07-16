@@ -8,8 +8,11 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates_uniqueness_of :email, case_sensitive: false
 
- # scope :default, -> { decks.find(default_deck).cards }
-  def default
-    decks.find(default_deck).cards
+  def review_card
+    if default_deck
+      decks.find(default_deck).cards.review
+    else
+      decks.order("RANDOM()").first.cards.review
+    end
   end
 end

@@ -1,5 +1,7 @@
 en:
   controllers:
+    application:
+      unsigned: 'You need log out before this action!'
     deck:
       create: 'Deck was successfully created.'
       update: 'Deck was successfully updated.'
@@ -49,6 +51,7 @@ en:
       translated_text: 'Translate'
       image_url: 'Image url'
       image: 'Image'
+      deck: 'Deck'
       review_date: 'Review date'
       edit: 'Edit'
       delete: 'Delete'

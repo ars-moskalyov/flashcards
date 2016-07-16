@@ -1,5 +1,7 @@
 ru:
   controllers:
+    application:
+      unsigned: 'You need log out before this action!' #!!!!
     deck:
       create: 'Deck was successfully created.'  #!!!!
       update: 'Deck was successfully updated.'  #!!!!
@@ -49,6 +51,7 @@ ru:
       translated_text: 'Перевод'
       image_url: 'Image url'    #!!!!!!!!!!
       image: 'Картинка'
+      deck: 'Колода'
       review_date: 'Дата пересмотра'
       edit: 'Редактировать'
       delete: 'Удалить'

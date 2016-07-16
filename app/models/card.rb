@@ -12,7 +12,7 @@ class Card < ApplicationRecord
   validates :review_date, presence: true
   validate :texts_must_be_diffirent
 
-  scope :review, -> { where('review_date >= ?', Time.now).order("RANDOM()") }
+  scope :review, -> { where('review_date = ?', Time.now).order("RANDOM()") }
 
   def check_answer(answer)
     if original_text.mb_chars.downcase == answer.strip.mb_chars.downcase

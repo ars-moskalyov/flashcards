@@ -5,7 +5,7 @@
         %li
           = item
 = simple_form_for @user, url: users_path do |f|
-  = f.input :email, label: I18n.t('views.user.email'), error: false
-  = f.input :password, label: I18n.t('views.user.password'), error: false
-  = f.input :password_confirmation, label: I18n.t('views.user.password_confirmation'), error: false
-  = f.button :submit, I18n.t('views.user.save')
+  = f.input :email, label: t('views.user.email'), error: false
+  = f.input :password, label: t('views.user.password'), error: false
+  = f.input :password_confirmation, label: t('views.user.password_confirmation'), error: false
+  = f.button :submit, t('views.user.save')

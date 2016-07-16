@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
+  
   has_many :decks, dependent: :destroy
 
   validates :password, length: { minimum: 5 }, if: -> { new_record? || changes[:crypted_password] }
@@ -10,9 +11,9 @@ class User < ApplicationRecord
 
   def review_card
     if default_deck
-      decks.find(default_deck).cards.review
+      decks.find(default_deck).cards.review.first
     else
-      decks.order("RANDOM()").first.cards.review
+      decks.order("RANDOM()").first.cards.review.first
     end
   end
 end

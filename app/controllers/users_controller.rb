@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
     if @user.save
-      redirect_to root_path, notice: I18n.t('controllers.user.updated')
+      redirect_to root_path, notice: t('controllers.user.updated')
     else
       render :edit
     end
@@ -21,6 +21,8 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email,
+                                 :password,
+                                 :password_confirmation)
   end
 end

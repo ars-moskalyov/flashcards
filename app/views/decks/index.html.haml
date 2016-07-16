@@ -1,13 +1,13 @@
 %h4
-  = I18n.t('views.deck.all_decks')
+  = t('views.deck.all_decks')
 %table.table.table-striped
   %thead
     %tr
       %th #
       %th
-        = I18n.t('views.deck.title')
+        = t('views.deck.title')
       %th
-        = I18n.t('views.deck.description')
+        = t('views.deck.description')
       %th
       %th
       %th
@@ -23,6 +23,6 @@
         %th
           = deck.id == current_user.default_deck ? t('views.deck.default') : link_to(t('views.deck.set_default'), deck_set_default_path(deck.id), method: :post)
         %th
-          = link_to I18n.t('views.deck.edit'), edit_deck_path(deck)
+          = link_to t('views.deck.edit'), edit_deck_path(deck)
         %th
-          = link_to I18n.t('views.deck.delete'), deck_path(deck), method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to t('views.deck.delete'), deck_path(deck), method: :delete, data: { confirm: 'Are you sure?' }

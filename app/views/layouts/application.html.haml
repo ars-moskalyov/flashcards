@@ -3,7 +3,7 @@
   %head
     %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }/
     %title
-      = I18n.t('views.layout.title')
+      = t('views.layout.title')
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
@@ -14,20 +14,20 @@
           %ul.nav.nav-pills.pull-right
             - if current_user
               %li
-                = link_to I18n.t('views.layout.all_decks'), decks_path
+                = link_to t('views.layout.all_decks'), decks_path
               %li
-                = link_to I18n.t('views.layout.add_deck'), new_deck_path
+                = link_to t('views.layout.add_deck'), new_deck_path
               %li
-                = link_to I18n.t('views.layout.edit_user'), edit_users_path
+                = link_to t('views.layout.edit_user'), edit_users_path
               %li
-                = link_to I18n.t('views.layout.logout'), :logout, method: :post
+                = link_to t('views.layout.logout'), :logout, method: :post
             - else
               %li
-                = link_to I18n.t('views.layout.register'), new_registration_path
+                = link_to t('views.layout.register'), new_registration_path
               %li
-                = link_to I18n.t('views.layout.login'), :login
+                = link_to t('views.layout.login'), :login
         %h3.text-muted
-          = link_to I18n.t('views.layout.title'), root_path
+          = link_to t('views.layout.title'), root_path
       %hr
       - if notice
         .alert.alert-info

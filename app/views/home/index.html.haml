@@ -1,16 +1,16 @@
 - if current_user
   #card
-    - if @card.first
+    - if @card
       %p
-        = image_tag @card.first.image_url if @card.first.image?
+        = image_tag @card.image_url if @card.image?
       %h3
         %b
-          = @card.first.translated_text.capitalize
+          = @card.translated_text.capitalize
       %br
       = simple_form_for :trainer, url: trainer_review_path do |f|
         = f.input :answer, label: false
-        = f.hidden_field :card_id, value: @card.first.id
-        = f.button :submit, I18n.t('views.home.answer')
+        = f.hidden_field :card_id, value: @card.id
+        = f.button :submit, t('views.home.answer')
     - else
       %h3
         = t('views.home.no_cards')

@@ -1,5 +1,7 @@
 %h4
   = I18n.t('views.card.all_cards')
+%p
+  = link_to 'new card', new_deck_card_path(params[:deck_id])
 %table.table.table-striped
   %thead
     %tr

@@ -4,11 +4,11 @@ class CardsController < ApplicationController
 
 
   def index
-    @cards = current_user.decks.find(params[:deck_id]).cards.all #!!!!!!!!
+    @cards = current_user.decks.find(params[:deck_id]).cards.all
   end
 
   def new
-    @card = current_user.decks.find(params[:deck_id]).cards.new
+    @card = Card.new
   end
 
   def edit
@@ -18,7 +18,7 @@ class CardsController < ApplicationController
     @card = current_user.decks.find(params[:deck_id]).cards.new(card_params)
 
     if @card.save
-      redirect_to decks_path, notice: I18n.t('controllers.card.create')
+      redirect_to deck_cards_path(params[:deck_id]), notice: I18n.t('controllers.card.create')
     else
       render :new
     end
@@ -28,7 +28,7 @@ class CardsController < ApplicationController
     @card.update(card_params)
 
     if @card.save
-      redirect_to decks_path, notice: I18n.t('controllers.card.update')
+      redirect_to deck_cards_path(@card.deck_id), notice: I18n.t('controllers.card.update')
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class CardsController < ApplicationController
 
   def destroy
     @card.destroy
-    redirect_to decks_path, notice: I18n.t('controllers.card.destroy')
+    redirect_to deck_cards_path(@card.deck_id), notice: I18n.t('controllers.card.destroy')
   end
 
   private
@@ -47,6 +47,10 @@ class CardsController < ApplicationController
   end
 
   def card_params
-    params.require(:card).permit(:original_text, :translated_text, :image, :remote_image_url)
+    params.require(:card).permit(:original_text, 
+                                 :translated_text, 
+                                 :image,
+                                 :remote_image_url,
+                                 :deck_id)
   end
 end

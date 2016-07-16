@@ -2,9 +2,9 @@ require 'open-uri'
 require 'nokogiri'
 
 user = User.create!(email: 'test@test', password: '12345', password_confirmation: '12345')
-puts 'user created'
+puts "created user \nlogin: test@test \npassword: 12345"
 
-user.decks.create!(title: 'test deck')
+user.decks.create!(title: 'test deck', description: 'lorem ipsum')
 puts 'deck created'
 
 url = 'http://russian.languagedaily.com/wordsandphrases/russian-cognates'

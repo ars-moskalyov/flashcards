@@ -4,7 +4,7 @@ class CardsController < ApplicationController
 
 
   def index
-    @cards = current_user.decks.find(params[:deck_id]).cards.all
+    @cards = deck.cards.all
   end
 
   def new
@@ -15,10 +15,10 @@ class CardsController < ApplicationController
   end
 
   def create
-    @card = current_user.decks.find(params[:deck_id]).cards.new(card_params)
+    @card = deck.cards.new(card_params)
 
     if @card.save
-      redirect_to deck_cards_path(params[:deck_id]), notice: I18n.t('controllers.card.create')
+      redirect_to deck_cards_path(params[:deck_id]), notice: t('controllers.card.create')
     else
       render :new
     end
@@ -28,7 +28,7 @@ class CardsController < ApplicationController
     @card.update(card_params)
 
     if @card.save
-      redirect_to deck_cards_path(@card.deck_id), notice: I18n.t('controllers.card.update')
+      redirect_to deck_cards_path(@card.deck_id), notice: t('controllers.card.update')
     else
       render :edit
     end
@@ -36,14 +36,17 @@ class CardsController < ApplicationController
 
   def destroy
     @card.destroy
-    redirect_to deck_cards_path(@card.deck_id), notice: I18n.t('controllers.card.destroy')
+    redirect_to deck_cards_path(@card.deck_id), notice: t('controllers.card.destroy')
   end
 
   private
 
+  def deck
+    current_user.decks.find(params[:deck_id])
+  end
+
   def set_card
-    deck_id = Card.find(params[:id]).deck_id
-    @card = current_user.decks.find(deck_id).cards.find(params[:id])
+    @card = deck.cards.find(params[:id])
   end
 
   def card_params

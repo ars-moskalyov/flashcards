@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   resource :registration, only: [:new, :create], path_names: { new: '' }
 
   resources :decks do
-    resources :cards, only: [:index, :new, :create]
+    resources :cards, except: :show
     post 'set_default'
   end
-  resources :cards, only: [:edit, :update, :destroy]
+
 
   resource :users, only: [:edit, :update]
   get 'login' => 'sessions#new', :as => :login

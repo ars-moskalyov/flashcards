@@ -22,8 +22,8 @@ en:
   views:
     layout:
       title: 'Flashcards'
-      add_card: 'New card'
-      all_cards: 'All cards'
+      add_deck: 'New deck'
+      all_decks: 'All decks'
       logout: 'Logout'
       register: 'Register'
       login: 'Login'

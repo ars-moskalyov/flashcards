@@ -6,9 +6,6 @@ class DecksController < ApplicationController
     @decks = current_user.decks
   end
 
-  def show
-  end
-
   def new
     @deck = current_user.decks.new
   end

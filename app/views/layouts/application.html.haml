@@ -14,9 +14,9 @@
           %ul.nav.nav-pills.pull-right
             - if current_user
               %li
-                = link_to I18n.t('views.layout.all_cards'), cards_path
+                = link_to I18n.t('views.layout.all_decks'), decks_path
               %li
-                = link_to I18n.t('views.layout.add_card'), new_card_path
+                = link_to I18n.t('views.layout.add_deck'), new_deck_path
               %li
                 = link_to I18n.t('views.layout.edit_user'), edit_users_path
               %li

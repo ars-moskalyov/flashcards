@@ -22,8 +22,8 @@ ru:
   views:
     layout:
       title: 'Флэшкарточкер'
-      add_card: 'Добавить карточку'
-      all_cards: 'Все карточки'
+      add_deck: 'Добавить колоду'
+      all_decks: 'Все колоды'
       logout: 'Выйти'
       register: 'Регистрация'
       login: 'Вход'

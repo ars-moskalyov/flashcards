@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     if current_user
-      @card = Card.review(current_user.id)
+      @card = current_user.decks.order("RANDOM()").first.cards.order("RANDOM()") #!!!!!!!!!!
     end
   end
 end

@@ -26,15 +26,6 @@ RSpec.describe Card, type: :model do
   describe 'methods tests' do
     let(:card) { create(:card) }
 
-    it '#download image' do
-      card = Card.new(original_text: 'aaa',
-                      translated_text: 'bbb',
-                      remote_url: 'http://s.bash.im/logo.gif')
-      card.download_image
-      card.save
-      expect(card.image_url).to be
-    end
-
     it 'touch review date!' do
       time = card.review_date
       card.send(:touch_review_date!)

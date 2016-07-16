@@ -1,6 +1,12 @@
 require 'open-uri'
 require 'nokogiri'
 
+user = User.create!(email: 'test@test', password: '12345', password_confirmation: '12345')
+puts 'user created'
+
+user.decks.create!(title: 'test deck')
+puts 'deck created'
+
 url = 'http://russian.languagedaily.com/wordsandphrases/russian-cognates'
 html = open(url)
 
@@ -16,7 +22,7 @@ hh = Hash[*pair_words.flatten]
 
 
 hh.each.with_index(1) do |(k, v), i|
-  Card.create!(original_text: v, translated_text: k)
-  print "\rCreated #{i} movies"
+  Card.create!(original_text: v, translated_text: k, deck_id: user.decks.first.id)
+  print "\rCreated #{i} cards"
 end
 puts

@@ -10,6 +10,6 @@ RSpec.describe User, type: :model do
   end
   
   describe 'associations tests' do
-    it { should have_many(:cards).dependent(:destroy) }
+    it { should have_many(:decks).dependent(:destroy) }
   end
 end

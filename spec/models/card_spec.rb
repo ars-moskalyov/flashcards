@@ -6,13 +6,13 @@ RSpec.describe Card, type: :model do
   end
 
   describe 'associations tests' do
-    it { should belong_to :user }
+    it { should belong_to :deck }
   end
 
   describe 'validation tests' do
     it { should validate_presence_of :original_text }
     it { should validate_presence_of :translated_text }
-    it { should validate_presence_of :user }
+    it { should validate_presence_of :deck }
 
     { identity: 'rr', upcase: 'RR' }.each do |k, v|
       it "validate texts #{k}" do

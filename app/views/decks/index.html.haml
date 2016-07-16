@@ -21,7 +21,7 @@
         %th
           = deck.description
         %th
-          = deck.id == current_user.default_deck ? 'Default' : link_to( 'Set default', deck_set_default_path(deck.id), method: :post)
+          = deck.id == current_user.default_deck ? t('views.deck.default') : link_to(t('views.deck.set_default'), deck_set_default_path(deck.id), method: :post)
         %th
           = link_to I18n.t('views.deck.edit'), edit_deck_path(deck)
         %th

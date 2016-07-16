@@ -7,4 +7,9 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :email, presence: true
   validates_uniqueness_of :email, case_sensitive: false
+
+ # scope :default, -> { decks.find(default_deck).cards }
+  def default
+    decks.find(default_deck).cards
+  end
 end

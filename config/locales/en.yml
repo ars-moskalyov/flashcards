@@ -4,6 +4,7 @@ en:
       create: 'Deck was successfully created.'
       update: 'Deck was successfully updated.'
       destroy: 'Deck was successfully deleted.'
+      set_default: 'Default deck set'
     card:
       create: 'Card was successfully created.'
       update: 'Card was successfully updated.'
@@ -40,6 +41,8 @@ en:
       new_deck: 'New deck:'
       edit_deck: 'Edit deck:'
       save_deck: 'Save deck'
+      default: 'Default'
+      set_default: 'Set default'
     card:
       all_cards: 'All cards:'
       original_text: 'Text'

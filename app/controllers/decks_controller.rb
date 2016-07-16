@@ -40,7 +40,7 @@ class DecksController < ApplicationController
 
   def set_default
     current_user.update!(default_deck: params[:deck_id])
-    redirect_to decks_path, notice: 'deck set'
+    redirect_to decks_path, notice: I18n.t('controllers.deck.set_default')
   end
 
   private

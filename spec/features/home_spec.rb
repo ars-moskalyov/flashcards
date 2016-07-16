@@ -5,9 +5,10 @@ feature 'review card on home page' do
     before(:each) do
       @user = create(:user, email: 'qqq@www')
       login('qqq@www', 'password')
+       @user.decks.create!(title: 'kkk', description: 'ggg')
     end
 
-    let!(:card) { create(:card_for_review, user_id: @user.id) }
+    let!(:card) { create(:card_for_review, deck_id: @user.decks.first.id) }
 
     scenario 'card to review exists' do
       visit root_path

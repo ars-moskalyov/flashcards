@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :deck do
-    title "MyString"
-    description "MyString"
-    user nil
+    association :user, factory: :user
+    title 'deck title'
+    description 'deck description'
   end
 end

@@ -47,11 +47,10 @@ RSpec.describe Card, type: :model do
     end
 
     it '.review' do
-      @user = create(:user)
       10.times do |i|
-        create(:card_for_review, user_id: @user.id)
+        create(:card_for_review)
       end
-      expect(Card.review(@user.id).size).to eq(10)
+      expect(Card.review.size).to eq(10)
     end
   end
 

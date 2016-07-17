@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'user have default deck' do
-      @user.update!(default_deck: @user.decks.first.id)
+      @user.update!(default_deck_id: @user.decks.first.id)
       5.times do
         expect(@user.review_card.original_text).to eq 'deck1'
       end

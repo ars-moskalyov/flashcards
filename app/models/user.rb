@@ -10,8 +10,8 @@ class User < ApplicationRecord
   validates_uniqueness_of :email, case_sensitive: false
 
   def review_card
-    if default_deck
-      decks.find(default_deck).cards.review.first
+    if default_deck_id
+      decks.find(default_deck_id).cards.review.first
     else
       decks.order("RANDOM()").first.cards.review.first
     end

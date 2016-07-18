@@ -2,34 +2,42 @@
   = t('views.card.all_cards')
 %p
   = link_to 'new card', new_deck_card_path(params[:deck_id])
-%table.table.table-striped
-  %thead
-    %tr
-      %th #
-      %th
-      %th
-        = t('views.card.original_text')
-      %th
-        = t('views.card.translated_text')
-      %th
-        = t('views.card.review_date')
-      %th
-      %th
-  %tbody
-    - @cards.each.with_index(1) do |card, i|
+
+
+= simple_form_for :card, url: :update_date_deck_cards do |f|
+  %table.table.table-striped
+    %thead
       %tr
+        %th #
         %th
-          = i
         %th
-          = image_tag card.image_url(:thumb) if card.image?
+          = t('views.card.original_text')
         %th
-          = card.original_text
+          = t('views.card.translated_text')
         %th
-          = card.translated_text
+          = t('views.card.review_date')
         %th
-          - if card.review_date
-            = card.review_date.strftime('%d/%m/%Y')
         %th
-          = link_to t('views.card.edit'), edit_deck_card_path(params[:deck_id], card)
         %th
-          = link_to t('views.card.delete'), deck_card_path(params[:deck_id], card), method: :delete, data: { confirm: 'Are you sure?' }
+    %tbody
+      - @cards.each.with_index(1) do |card, i|
+        %tr
+          %th
+            = i
+          %th
+            = image_tag card.image_url(:thumb) if card.image?
+          %th
+            = card.original_text
+          %th
+            = card.translated_text
+          %th
+            - if card.review_date
+              = card.review_date.strftime('%d/%m/%Y')
+          %th
+            = check_box_tag('cards[]', card.id, checked = false)
+          %th
+            = link_to t('views.card.edit'), edit_deck_card_path(params[:deck_id], card)
+          %th
+            = link_to t('views.card.delete'), deck_card_path(params[:deck_id], card), method: :delete, data: { confirm: 'Are you sure?' }
+
+  = f.button :submit, t('views.card.review_now')

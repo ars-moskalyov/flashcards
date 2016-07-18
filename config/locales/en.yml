@@ -58,6 +58,7 @@ en:
       new_card: 'New card:'
       edit_card: 'Edit card:'
       save_card: 'Save card'
+      review_now: 'Review now'
     registration:
       save_user: 'Sign Up'      
     user:

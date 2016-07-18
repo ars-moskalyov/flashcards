@@ -27,4 +27,12 @@ feature 'user' do
     expect(page).to have_content I18n.t('controllers.card.update')
     expect(page).to have_content 'lorem ipsum'
   end
+
+  scenario 'change card reviev date' do
+    date = Time.now.strftime('%d/%m/%Y')
+    visit deck_cards_path(@user.decks.first.id)
+    page.check("cards_")
+    click_button I18n.t('views.card.review_now')
+    expect(page).to have_content date
+  end
 end

@@ -58,6 +58,7 @@ ru:
       new_card: 'Новая карточка:'
       edit_card: 'Изменить карточку:'
       save_card: 'Сохранить карточку'
+      review_now: 'Review now'
     registration:
       save_user: 'Зарегистрироваться'
     user:

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resource :registration, only: [:new, :create], path_names: { new: '' }
 
   resources :decks, except: :show do
-    resources :cards, except: :show
+    resources :cards, except: :show do
+      post 'update_date', on: :collection
+    end
     post 'set_default'
   end
 

@@ -2,7 +2,6 @@ class CardsController < ApplicationController
   before_action :require_login
   before_action :set_card, only: [:edit, :update, :destroy]
 
-
   def index
     @cards = deck.cards.all
   end
@@ -39,7 +38,18 @@ class CardsController < ApplicationController
     redirect_to deck_cards_path(@card.deck_id), notice: t('controllers.card.destroy')
   end
 
+  def update_date
+    update_review_date(deck.cards.where(id: params[:cards]))
+    redirect_back(fallback_location: decks_path)
+  end
+
   private
+
+  def update_review_date(cards)
+    if cards.exists?
+      cards.update_all(review_date: Time.now)
+    end
+  end
 
   def deck
     current_user.decks.find(params[:deck_id])

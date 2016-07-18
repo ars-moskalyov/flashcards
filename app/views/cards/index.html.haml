@@ -1,16 +1,18 @@
 %h4
-  = I18n.t('views.card.all_cards')
+  = t('views.card.all_cards')
+%p
+  = link_to 'new card', new_deck_card_path(params[:deck_id])
 %table.table.table-striped
   %thead
     %tr
       %th #
       %th
       %th
-        = I18n.t('views.card.original_text')
+        = t('views.card.original_text')
       %th
-        = I18n.t('views.card.translated_text')
+        = t('views.card.translated_text')
       %th
-        = I18n.t('views.card.review_date')
+        = t('views.card.review_date')
       %th
       %th
   %tbody
@@ -28,6 +30,6 @@
           - if card.review_date
             = card.review_date.strftime('%d/%m/%Y')
         %th
-          = link_to I18n.t('views.card.edit'), edit_card_path(card)
+          = link_to t('views.card.edit'), edit_deck_card_path(params[:deck_id], card)
         %th
-          = link_to I18n.t('views.card.delete'), card_path(card), method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to t('views.card.delete'), deck_card_path(params[:deck_id], card), method: :delete, data: { confirm: 'Are you sure?' }

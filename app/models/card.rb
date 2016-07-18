@@ -1,18 +1,18 @@
 class Card < ApplicationRecord
-  belongs_to :user
+  belongs_to :deck
 
   mount_uploader :image, ImageUploader
 
   before_validation :set_review_date, on: :create
   before_validation :remove_whitespace
 
-  validates :user, presence: true
+  validates :deck, presence: true
   validates :original_text, presence: true
   validates :translated_text, presence: true
   validates :review_date, presence: true
   validate :texts_must_be_diffirent
 
-  scope :review, -> (user) { where('review_date <= ? AND user_id = ?', Time.now, user).order("RANDOM()") }
+  scope :review, -> { where('review_date <= ?', Time.now).order("RANDOM()") }
 
   def check_answer(answer)
     if original_text.mb_chars.downcase == answer.strip.mb_chars.downcase

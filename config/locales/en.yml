@@ -1,5 +1,12 @@
 en:
   controllers:
+    application:
+      unsigned: 'You need log out before this action!'
+    deck:
+      create: 'Deck was successfully created.'
+      update: 'Deck was successfully updated.'
+      destroy: 'Deck was successfully deleted.'
+      set_default: 'Default deck set'
     card:
       create: 'Card was successfully created.'
       update: 'Card was successfully updated.'
@@ -18,8 +25,8 @@ en:
   views:
     layout:
       title: 'Flashcards'
-      add_card: 'New card'
-      all_cards: 'All cards'
+      add_deck: 'New deck'
+      all_decks: 'All decks'
       logout: 'Logout'
       register: 'Register'
       login: 'Login'
@@ -27,12 +34,24 @@ en:
     home:
       answer: 'Answer'
       no_cards: 'All cards are viewed.'
+    deck:
+      all_decks: 'All decks:'
+      title: 'Title'
+      description: 'Description'
+      edit: 'Edit'
+      delete: 'Delete'
+      new_deck: 'New deck:'
+      edit_deck: 'Edit deck:'
+      save_deck: 'Save deck'
+      default: 'Default'
+      set_default: 'Set default'
     card:
       all_cards: 'All cards:'
       original_text: 'Text'
       translated_text: 'Translate'
       image_url: 'Image url'
       image: 'Image'
+      deck: 'Deck'
       review_date: 'Review date'
       edit: 'Edit'
       delete: 'Delete'

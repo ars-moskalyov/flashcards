@@ -1,7 +1,0 @@
-= simple_form_for @card do |f|
-  = f.input :original_text, label: I18n.t('views.card.original_text'), error: false
-  = f.input :translated_text, label: I18n.t('views.card.translated_text'), error: false
-  = image_tag @card.image if @card.image?
-  = f.input :remote_image_url, label: I18n.t('views.card.image_url')
-  = f.input :image, as: :file, label: I18n.t('views.card.image'), error: false
-  = f.button :submit, I18n.t('views.card.save_card')

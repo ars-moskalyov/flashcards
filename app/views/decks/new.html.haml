@@ -1,0 +1,9 @@
+- if @deck.errors.any?
+  .alert.alert-danger
+    %ul
+      - @deck.errors.full_messages.each do |item|
+        %li
+          = item
+%h4
+  = t('views.deck.new_deck')
+= render 'form'

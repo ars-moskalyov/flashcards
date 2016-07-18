@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   def unsigned
     if current_user
       request.env["HTTP_REFERER"] ||= root_path 
-      redirect_to :back, notice: 'You need log out before this action!' #I18n!!!
+      redirect_to :back, notice: t('controllers.application.unsigned')
     end
   end
 end

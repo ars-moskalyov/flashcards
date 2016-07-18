@@ -9,7 +9,7 @@ class RegistrationsController < ApplicationController
     @user = User.new(registration_params)
     if @user.save
       login(registration_params[:email], registration_params[:password])
-      redirect_to root_path, notice: I18n.t('controllers.registration.created')
+      redirect_to root_path, notice: t('controllers.registration.created')
     else
       render :new
     end
@@ -18,6 +18,8 @@ class RegistrationsController < ApplicationController
   private
 
   def registration_params
-    params.require(:registration).permit(:email, :password, :password_confirmation)
+    params.require(:registration).permit(:email,
+                                         :password,
+                                         :password_confirmation)
   end
 end

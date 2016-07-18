@@ -6,13 +6,13 @@ RSpec.describe Card, type: :model do
   end
 
   describe 'associations tests' do
-    it { should belong_to :user }
+    it { should belong_to :deck }
   end
 
   describe 'validation tests' do
     it { should validate_presence_of :original_text }
     it { should validate_presence_of :translated_text }
-    it { should validate_presence_of :user }
+    it { should validate_presence_of :deck }
 
     { identity: 'rr', upcase: 'RR' }.each do |k, v|
       it "validate texts #{k}" do
@@ -47,11 +47,10 @@ RSpec.describe Card, type: :model do
     end
 
     it '.review' do
-      @user = create(:user)
       10.times do |i|
-        create(:card_for_review, user_id: @user.id)
+        create(:card_for_review)
       end
-      expect(Card.review(@user.id).size).to eq(10)
+      expect(Card.review.size).to eq(10)
     end
   end
 

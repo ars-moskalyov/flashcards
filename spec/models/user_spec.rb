@@ -21,26 +21,21 @@ RSpec.describe User, type: :model do
     before(:each) do
       @user = create(:user)
       deck1 = create(:deck, user_id: @user.id)
-      deck2 = create(:deck, user_id: @user.id)
+      @deck2 = create(:deck, user_id: @user.id)
       create(:card_for_review, deck_id: deck1.id, original_text: 'deck1')
-      create(:card_for_review, deck_id: deck2.id, original_text: 'deck2')
+      create(:card_for_review, deck_id: @deck2.id, original_text: 'deck2')
+      allow(@user.decks).to receive(:order).with("RANDOM()") { [@deck2] }
     end
 
     it 'user have default deck' do
       @user.update!(default_deck_id: @user.decks.first.id)
-      5.times do
-        expect(@user.review_card.original_text).to eq 'deck1'
-      end
+      expect(@user.review_card.original_text).to eq 'deck1'
     end
 
     it "user don't have default deck" do
-      x = 0
-      15.times do
-        if @user.review_card.original_text == 'deck1'
-          x += 1
-        end
-      end
-      expect(x).to_not eq 15
+      @card = @user.review_card
+      expect(@card.deck).to eq(@deck2)
+      expect(@card.original_text).to eq 'deck2'
     end
   end
 end

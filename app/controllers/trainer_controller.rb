@@ -2,8 +2,7 @@ class TrainerController < ApplicationController
   before_action :require_login
   
   def review
-    @card = Card.find(trainer_params[:card_id])
-    result = @card.check_answer(trainer_params[:answer])
+    result = CheckAnswer.new(trainer_params[:card_id], trainer_params[:answer])
     if result.success?
       redirect_to root_path, notice: t('controllers.trainer.correct')
     else

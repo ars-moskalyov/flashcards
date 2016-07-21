@@ -16,6 +16,8 @@
           = t('views.card.translated_text')
         %th
           = t('views.card.review_date')
+        %th check
+        %th effort
         %th
         %th
         %th
@@ -33,6 +35,10 @@
           %th
             - if card.review_date
               = card.review_date.strftime('%d/%m/%Y')
+          %th
+            = card.check
+          %th
+            = card.effort
           %th
             = check_box_tag('cards[]', card.id, checked = false)
           %th

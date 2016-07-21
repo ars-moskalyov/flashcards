@@ -22,8 +22,8 @@ RSpec.describe User, type: :model do
       @user = create(:user)
       deck1 = create(:deck, user_id: @user.id)
       @deck2 = create(:deck, user_id: @user.id)
-      create(:card_for_review, deck_id: deck1.id, original_text: 'deck1')
-      create(:card_for_review, deck_id: @deck2.id, original_text: 'deck2')
+      create(:card, deck_id: deck1.id, original_text: 'deck1')
+      create(:card, deck_id: @deck2.id, original_text: 'deck2')
       allow(@user.decks).to receive(:order).with("RANDOM()") { [@deck2] }
     end
 

@@ -28,7 +28,7 @@ feature 'user' do
     expect(page).to have_content 'lorem ipsum'
   end
 
-  scenario 'change card reviev date' do
+  scenario 'change card review date' do
     date = Time.now.strftime('%d/%m/%Y')
     visit deck_cards_path(@user.decks.first.id)
     page.check("cards_")

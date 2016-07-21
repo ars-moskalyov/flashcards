@@ -13,6 +13,8 @@ RSpec.describe Card, type: :model do
     it { should validate_presence_of :original_text }
     it { should validate_presence_of :translated_text }
     it { should validate_presence_of :deck }
+    it { should validate_inclusion_of(:check).in_range(1..5) }
+    it { should validate_inclusion_of(:effort).in_range(0..2) }
 
     { identity: 'rr', upcase: 'RR' }.each do |k, v|
       it "validate texts #{k}" do
@@ -32,23 +34,9 @@ RSpec.describe Card, type: :model do
       expect(card.review_date).not_to eq(time)
     end
 
-    context '#check answer' do
-      it 'correct answers' do
-        ['original text', 'OriGinal teXt', 'Original teXt  '].each do |answer|
-          result = card.check_answer(answer)
-          expect(result.success?).to be_truthy
-        end
-      end
-
-      it 'wrong answer' do
-        result = card.check_answer('wrong text')
-        expect(result.success?).to be_falsey
-      end
-    end
-
     it '.review' do
       10.times do |i|
-        create(:card_for_review)
+        create(:card)
       end
       expect(Card.review.size).to eq(10)
     end

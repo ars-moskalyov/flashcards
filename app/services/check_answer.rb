@@ -28,30 +28,24 @@ class CheckAnswer
 
   def set_date
     x = @card.check + 1
-    if x <= 5
-      @card.update!(review_date: Time.now + @hh[x], check: x, effort: 0)
-    else
-      @card.update!(review_date: Time.now + @hh[5], check: 5, effort: 0)
-    end
+    x = 5 unless x <= 5
+    @card.update!(review_date: Time.current + @hh[x], check: x, effort: 0)
   end
 
   def wrong_answer
-    if @card.effort < 2
-      effort_up
-    else
-      check_down
-    end
+    new_attrs = @card.effort < 2 ? effort_up : check_down
+    @card.update!(new_attrs)
   end
 
   def effort_up
-    @card.update!(effort: @card.effort + 1)
+    { effort: @card.effort + 1 }
   end
 
   def check_down
     if @card.check > 1
-      @card.update!(review_date: Time.now + @hh[@card.check - 1], check: @card.check - 1, effort: 0)
+      { review_date: Time.current + @hh[@card.check - 1], check: @card.check - 1, effort: 0 }
     else
-      @card.update!(effort: 0)
+      { effort: 0 }
     end
   end
 end

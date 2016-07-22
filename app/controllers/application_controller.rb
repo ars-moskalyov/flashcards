@@ -3,8 +3,7 @@ class ApplicationController < ActionController::Base
 
   def unsigned
     if current_user
-      request.env["HTTP_REFERER"] ||= root_path 
-      redirect_to :back, notice: t('controllers.application.unsigned')
+      redirect_back(fallback_location: root_path)
     end
   end
 end

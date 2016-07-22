@@ -11,29 +11,12 @@ class Card < ApplicationRecord
   validates :translated_text, presence: true
   validates :review_date, presence: true
   validate :texts_must_be_diffirent
+  validates :check, inclusion: { in: 1..5 }
+  validates :effort, inclusion: { in: 0..2 }
 
-  scope :review, -> { where('review_date <= ?', Time.now).order("RANDOM()") }
-
-  def check_answer(answer)
-    if original_text.mb_chars.downcase == answer.strip.mb_chars.downcase
-      touch_review_date!
-      Result.new(:ok)
-    else
-      Result.new
-    end
-  end
+  scope :review, -> { where('review_date <= ?', Time.current).order("RANDOM()") }
 
   private
-
-  Result = Struct.new(:status) do 
-    def success?
-      status == :ok
-    end
-  end
-
-  def touch_review_date!
-    update(review_date: Time.now + 3.days)
-  end
 
   def texts_must_be_diffirent
     if original_text && translated_text
@@ -44,7 +27,7 @@ class Card < ApplicationRecord
   end
 
   def set_review_date
-    self.review_date = Time.now + 3.days
+    self.review_date = Time.current
   end
 
   def remove_whitespace

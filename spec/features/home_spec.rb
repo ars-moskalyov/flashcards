@@ -8,7 +8,7 @@ feature 'review card on home page' do
       @user.decks.create!(title: 'kkk', description: 'ggg')
     end
 
-    let!(:card) { create(:card_for_review, deck_id: @user.decks.first.id) }
+    let!(:card) { create(:card, deck_id: @user.decks.first.id) }
 
     scenario 'card to review exists' do
       visit root_path

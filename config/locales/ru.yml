@@ -11,9 +11,6 @@ ru:
       create: 'Карточка добавлена.'
       update: 'Карточка обновлена.'
       destroy: 'Карточка удалена.'
-    trainer:
-      correct: 'Правильно.'
-      wrong: 'Неправильно.'
     registration:
       created: 'User created.'     #!!!!
     session:
@@ -34,6 +31,10 @@ ru:
     home:
       answer: 'Ответ'
       no_cards: 'Все карточки просмотрены.'
+    trainer:
+      mistake: 'Correctly but ' #!!!!
+      wrong: 'Wrong' #!!!!
+      answer: 'Ваш ответ:'
     deck:
       all_decks: 'All decks:' #!!!!!!
       title: 'Title' #!!!!!!

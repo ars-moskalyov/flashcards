@@ -1,0 +1,22 @@
+#card
+  %p
+    = image_tag @result[:card].image_url if @result[:card].image?
+  %h3
+    %b
+      = @result[:card].translated_text.mb_chars.capitalize + ' - ' + @result[:card].original_text.mb_chars.capitalize
+  - if @result[:err] == 1
+    .alert.alert-warning
+      %h3
+        %b
+          = t('views.trainer.mistake')
+          %br
+          = t('views.trainer.answer') + ' ' + @result[:answer]
+  - elsif @result[:err] > 1
+    .alert.alert-danger
+      %h3
+        %b
+          = t('views.trainer.wrong')
+          %br
+          = t('views.trainer.answer') + ' ' + @result[:answer]
+  %br
+    = button_to 'next card', root_path, html_options = { class: "btn btn-default" }

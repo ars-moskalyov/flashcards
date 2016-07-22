@@ -19,4 +19,4 @@
           %br
           = t('views.trainer.answer') + ' ' + @result[:answer]
   %br
-    = button_to 'next card', root_path, html_options = { class: "btn btn-default" }
+    = button_to 'next card', root_path, html_options = { method: 'get', class: "btn btn-default" }

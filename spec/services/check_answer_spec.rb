@@ -53,7 +53,7 @@ describe CheckAnswer do
         c = CheckAnswer.new(@card.id, 'zzz')
         c.send(:check)
         @card.reload
-        date = (Time.now + 1.month).strftime('%Y-%m-%d')
+        date = (Time.current + 1.month).strftime('%Y-%m-%d')
         expect(@card.review_date.to_s).to match(date)
       end
 

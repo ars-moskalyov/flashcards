@@ -47,7 +47,7 @@ class CardsController < ApplicationController
 
   def update_review_date(cards)
     if cards.exists?
-      cards.update_all(review_date: Time.now)
+      cards.update_all(review_date: Time.current)
     end
   end
 

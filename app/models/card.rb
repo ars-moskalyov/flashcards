@@ -14,13 +14,9 @@ class Card < ApplicationRecord
   validates :check, inclusion: { in: 1..5 }
   validates :effort, inclusion: { in: 0..2 }
 
-  scope :review, -> { where('review_date <= ?', Time.now).order("RANDOM()") }
+  scope :review, -> { where('review_date <= ?', Time.current).order("RANDOM()") }
 
   private
-
-  def touch_review_date!
-    update(review_date: Time.now)
-  end
 
   def texts_must_be_diffirent
     if original_text && translated_text
@@ -31,7 +27,7 @@ class Card < ApplicationRecord
   end
 
   def set_review_date
-    self.review_date = Time.now
+    self.review_date = Time.current
   end
 
   def remove_whitespace

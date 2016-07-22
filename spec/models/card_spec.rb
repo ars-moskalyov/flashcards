@@ -28,12 +28,6 @@ RSpec.describe Card, type: :model do
   describe 'methods tests' do
     let(:card) { create(:card) }
 
-    it 'touch review date!' do
-      time = card.review_date
-      card.send(:touch_review_date!)
-      expect(card.review_date).not_to eq(time)
-    end
-
     it '.review' do
       10.times do |i|
         create(:card)

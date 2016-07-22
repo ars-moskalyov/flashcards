@@ -16,8 +16,12 @@ class CheckAnswer
 
   private
 
+  def levenshtein_distance
+    DamerauLevenshtein.distance(@card.original_text.mb_chars.downcase, @answer.strip.mb_chars.downcase)
+  end
+
   def check
-    if @card.original_text.mb_chars.downcase == @answer.strip.mb_chars.downcase
+    if levenshtein_distance <= 1
       set_date
       return true
     else

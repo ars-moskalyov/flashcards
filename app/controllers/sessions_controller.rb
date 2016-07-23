@@ -19,10 +19,15 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: t('controllers.session.logout')
   end
 
+  def locale
+    session[:locale] = params[:locale]
+    redirect_back(fallback_location: root_path)
+  end
+
   private
 
   def session_params
-    params.require(:session).permit(:email, 
+    params.require(:session).permit(:email,
                                     :password)
   end
 end

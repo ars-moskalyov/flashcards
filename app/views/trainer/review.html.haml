@@ -10,13 +10,13 @@
         %b
           = t('views.trainer.mistake')
           %br
-          = t('views.trainer.answer') + ' ' + @result[:answer]
+          = t('views.trainer.answer', answer: @result[:answer] )
   - elsif @result[:err] > 1
     .alert.alert-danger
       %h3
         %b
           = t('views.trainer.wrong')
           %br
-          = t('views.trainer.answer') + ' ' + @result[:answer]
+          = t('views.trainer.answer', answer: @result[:answer] )
   %br
     = button_to 'next card', root_path, html_options = { method: 'get', class: "btn btn-default" }

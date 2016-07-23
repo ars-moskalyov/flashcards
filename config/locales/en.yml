@@ -34,7 +34,7 @@ en:
     trainer:
       mistake: 'Correctly but ' #!!!!
       wrong: 'Wrong'
-      answer: 'Your answer:'
+      answer: "Your answer: %{answer}"
     deck:
       all_decks: 'All decks:'
       title: 'Title'

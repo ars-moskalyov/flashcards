@@ -33,3 +33,10 @@
         .alert.alert-info
           = notice
       = yield
+    %footer.footer
+      .container
+        %hr
+        - if I18n.locale == :en
+          = link_to 'Ru', locale_path(locale: 'ru')
+        - else
+          = link_to 'En', locale_path(locale: 'en')

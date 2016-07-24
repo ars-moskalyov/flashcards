@@ -1,28 +1,34 @@
 require 'rails_helper'
 
 describe CheckAnswer do
-  before(:each) do
-    @card = create(:card, original_text: 'zzz')
-  end
 
-  context '.success?' do
-    it 'correct answer' do
-      c = CheckAnswer.new(@card.id, 'zzz')
-      expect(c.success?).to be_truthy
+  describe '.check' do
+    context 'return' do
+      it 'card' do
+        @card = create(:card)
+        result = CheckAnswer.new(@card.id, 'jjj').check
+        expect(result[:card]).to eq(@card)
+      end
+
+      it 'answer' do
+        @card = create(:card)
+        result = CheckAnswer.new(@card.id, 'jjj').check
+        expect(result[:answer]).to eq('jjj')
+      end
+
+      { correct: ['rabbit', 0], mistake: ['rabit', 1], wrong: ['wolf', 6] }.each do |k, v|
+        it "#{k}" do
+          @card = create(:card, original_text: 'rabbit')
+          result = CheckAnswer.new(@card.id, v[0]).check
+          expect(result[:err]).to eq(v[1])
+        end
+      end
     end
 
-    it 'wrong answer' do
-      c = CheckAnswer.new(@card.id, 'xxx')
-      expect(c.success?).to be_falsey
-    end
-  end
-
-  describe '#check' do
     context 'incorrect answer' do
       it 'third attempt and check > 1' do
         @card = create(:card, check: 4, effort: 2)
-        c = CheckAnswer.new(@card.id, 'jjj')
-        c.send(:check)
+        CheckAnswer.new(@card.id, 'jjj').check
         @card.reload
         expect(@card.effort).to eq(0)
         expect(@card.check).to eq(3)
@@ -30,8 +36,7 @@ describe CheckAnswer do
 
       it 'third attempt and check = 1' do
         @card = create(:card, check: 1, effort: 2)
-        c = CheckAnswer.new(@card.id, 'jjj')
-        c.send(:check)
+        CheckAnswer.new(@card.id, 'jjj').check
         @card.reload
         expect(@card.effort).to eq(0)
         expect(@card.check).to eq(1)
@@ -39,8 +44,7 @@ describe CheckAnswer do
 
       it 'second attempt' do
         @card = create(:card, check: 1, effort: 1)
-        c = CheckAnswer.new(@card.id, 'jjj')
-        c.send(:check)
+        CheckAnswer.new(@card.id, 'jjj').check
         @card.reload
         expect(@card.effort).to eq(2)
         expect(@card.check).to eq(1)
@@ -50,8 +54,7 @@ describe CheckAnswer do
     context 'correct answer' do
       it 'check = 5' do
         @card = create(:card, original_text: 'zzz', check: 5)
-        c = CheckAnswer.new(@card.id, 'zzz')
-        c.send(:check)
+        CheckAnswer.new(@card.id, 'zzz').check
         @card.reload
         date = (Time.current + 1.month).strftime('%Y-%m-%d')
         expect(@card.review_date.to_s).to match(date)
@@ -59,10 +62,18 @@ describe CheckAnswer do
 
       it 'check < 5' do
         @card = create(:card, original_text: 'zzz', check: 3, effort: 2)
-        c = CheckAnswer.new(@card.id, 'zzz')
-        c.send(:check)
+        CheckAnswer.new(@card.id, 'zzz').check
         @card.reload
         expect(@card.effort).to eq(0)
+        expect(@card.check).to eq(4)
+      end
+    end
+
+    context 'correct answer with mistake' do
+      it 'check = 3' do
+        @card = create(:card, original_text: 'lorem', check: 3)
+        CheckAnswer.new(@card.id, 'lorAm').check
+        @card.reload
         expect(@card.check).to eq(4)
       end
     end

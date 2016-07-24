@@ -10,20 +10,21 @@ class CheckAnswer
             5 => 1.month }
   end
 
-  def success?
-    check
+  def check
+    if levenshtein_distance <= 1
+      set_date
+    else
+      wrong_answer
+    end
+    { err: levenshtein_distance,
+      card: @card,
+      answer: @answer }
   end
 
   private
 
-  def check
-    if @card.original_text.mb_chars.downcase == @answer.strip.mb_chars.downcase
-      set_date
-      return true
-    else
-      wrong_answer
-      return false
-    end
+  def levenshtein_distance
+    DamerauLevenshtein.distance(@card.original_text.mb_chars.downcase, @answer.strip.mb_chars.downcase)
   end
 
   def set_date

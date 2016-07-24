@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   end
 
   resource :users, only: [:edit, :update]
-  get 'login' => 'sessions#new', :as => :login
-  post 'logout' => 'sessions#destroy', :as => :logout
+  get 'login' => 'sessions#new', as: :login
+  post 'logout' => 'sessions#destroy', as: :logout
+  get 'locale' => 'sessions#locale', as: :locale
 
   resources :sessions, only: [:create, :destroy]
 end

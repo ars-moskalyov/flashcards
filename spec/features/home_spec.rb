@@ -8,7 +8,7 @@ feature 'review card on home page' do
       @user.decks.create!(title: 'kkk', description: 'ggg')
     end
 
-    let!(:card) { create(:card, deck_id: @user.decks.first.id) }
+    let!(:card) { create(:card, original_text: 'rabbit', deck_id: @user.decks.first.id) }
 
     scenario 'card to review exists' do
       visit root_path
@@ -27,18 +27,18 @@ feature 'review card on home page' do
       expect(page).to have_content I18n.t('views.home.no_cards')
     end
 
-    scenario 'user answered correctly' do
+    scenario 'answered correctly with mistake' do
       visit root_path
-      fill_in 'trainer[answer]', with: card.original_text
+      fill_in 'trainer[answer]', with: 'rabit'
       click_button I18n.t('views.home.answer')
-      expect(page).to have_content I18n.t('controllers.trainer.correct')
+      expect(page).to have_content I18n.t('views.trainer.mistake')
     end
 
-    scenario 'user answered incorrectly' do
+    scenario 'answered incorrectly' do
       visit root_path
       fill_in 'trainer[answer]', with: 'wrong_answer'
       click_button I18n.t('views.home.answer')
-      expect(page).to have_content I18n.t('controllers.trainer.wrong')
+      expect(page).to have_content I18n.t('views.trainer.wrong')
     end
   end
 end

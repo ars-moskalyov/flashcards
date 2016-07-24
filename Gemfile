@@ -19,6 +19,7 @@ gem 'mini_magick', '~> 4.5.1'
 gem 'figaro', '~> 1.1.1'
 gem 'fog', '~> 1.20', require: 'fog/aws/storage'
 gem 'asset_sync', '~> 1.1.0'
+gem 'damerau-levenshtein', '~> 1.1.3'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -273,6 +273,12 @@ GEM
       rack (>= 1.2, < 3)
     pg (0.18.4)
     pkg-config (1.1.7)
+    postmark (1.8.1)
+      json
+      rake
+    postmark-rails (0.13.0)
+      actionmailer (>= 3.0.0)
+      postmark (~> 1.8.0)
     puma (3.4.0)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -401,6 +407,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mini_magick (~> 4.5.1)
   pg (~> 0.18.4)
+  postmark-rails (~> 0.13.0)
   puma (~> 3.0)
   rails (~> 5.0.0)
   rake

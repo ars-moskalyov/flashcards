@@ -20,6 +20,7 @@ gem 'figaro', '~> 1.1.1'
 gem 'fog', '~> 1.20', require: 'fog/aws/storage'
 gem 'asset_sync', '~> 1.1.0'
 gem 'damerau-levenshtein', '~> 1.1.3'
+gem 'postmark-rails', '~> 0.13.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri

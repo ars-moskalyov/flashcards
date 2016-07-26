@@ -9,7 +9,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = session[:locale] || extract_locale_from_accept_language_header || I18n.default_locale
+    if current_user
+      I18n.locale = current_user.locale
+    else
+      I18n.locale = session[:locale] || extract_locale_from_accept_language_header || I18n.default_locale
+    end
   end
 
   def extract_locale_from_accept_language_header

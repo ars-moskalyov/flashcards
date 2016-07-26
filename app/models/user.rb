@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
   
+  has_many :cards, through: :decks
   has_many :decks, dependent: :destroy
   belongs_to :default_deck, class_name: 'Deck', foreign_key: "default_deck_id"
 

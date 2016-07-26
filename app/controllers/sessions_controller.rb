@@ -20,7 +20,11 @@ class SessionsController < ApplicationController
   end
 
   def locale
-    session[:locale] = params[:locale]
+    if current_user
+      current_user.update!(locale: params[:locale])
+    else
+      session[:locale] = params[:locale]
+    end
     redirect_back(fallback_location: root_path)
   end
 

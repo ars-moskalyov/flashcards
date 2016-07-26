@@ -69,3 +69,10 @@ en:
       save: 'Save'
     session:
       sign_in: 'Sign in'
+  mailers:
+    notifications:
+      subject: 'pending cards'
+      greeting: 'Hi, %{name}.'
+      content: 'You have a cards, ready for review'
+      unsubscribe: 'You can change your subscribe settings in your'
+      profile: 'profile.'

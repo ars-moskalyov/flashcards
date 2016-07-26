@@ -1,0 +1,7 @@
+%h3
+  = t('mailers.notifications.greeting', name: @name)
+%p
+  = t('mailers.notifications.content')
+%p
+  = t('mailers.notifications.unsubscribe')
+  = link_to(t('mailers.notifications.profile'), edit_users_url)

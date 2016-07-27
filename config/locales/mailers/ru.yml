@@ -1,0 +1,8 @@
+ru:
+  mailers:
+    notifications:
+      subject: 'pending cards' #!!!!!
+      greeting: 'Привет, %{name}.'
+      content: 'У вас есть карточки, готовые к просмотру.'
+      unsubscribe: 'Изменить настройки рассылки можно в своем'
+      profile: 'профиле.'

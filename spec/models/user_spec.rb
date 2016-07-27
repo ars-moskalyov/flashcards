@@ -42,4 +42,15 @@ RSpec.describe User, type: :model do
       expect(@card.original_text).to eq 'deck2'
     end
   end
+
+  describe '.send_notification' do
+    it 'card to review exists' do
+      card = create(:card)
+      expect(User.send_notification).to eq([card.deck.user])
+    end
+
+    it 'card to review not exists' do
+      expect(User.send_notification).to eq([])
+    end
+  end
 end

@@ -7,6 +7,7 @@ RSpec.describe Card, type: :model do
 
   describe 'associations tests' do
     it { should belong_to :deck }
+    it { should have_one :user }
   end
 
   describe 'validation tests' do

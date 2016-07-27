@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'pending_cards_notification' do
   let!(:card) { create(:card) }
-  let(:mail) { NotificationsMailer.pending_cards_notification }
+  let(:mail) { NotificationsMailer.pending_cards_notification(card.deck.user) }
 
   it 'renders the subject' do
     expect(mail.subject).to eq(I18n.t('mailers.notifications.subject'))

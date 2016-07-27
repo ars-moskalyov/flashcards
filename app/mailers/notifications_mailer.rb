@@ -1,16 +1,10 @@
 class NotificationsMailer < ActionMailer::Base
   default from: 'www@flashcards.com.de'
 
-  def pending_cards_notification
-    users = User.joins(:cards).where('cards.review_date <= ?', Time.current).pluck(:email, :name, :locale)
-    if users != nil
-      users.uniq!
-      users.each do |user|
-        @name = user[1]
-        I18n.with_locale(user[2]) do
-          mail(to: user[0], subject: t('mailers.notifications.subject'))
-        end
-      end
+  def pending_cards_notification(user)
+    @name = user.name
+    I18n.with_locale(user.locale) do
+      mail(to: user.email, subject: t('mailers.notifications.subject'))
     end
   end
 end

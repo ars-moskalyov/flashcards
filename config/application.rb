@@ -11,7 +11,7 @@ module Flashcards
     config.time_zone = 'Moscow'
     config.i18n.default_locale = :en
 
-    config.action_mailer.delivery_method = :postmark
+    config.action_mailer.delivery_method = :test
     config.action_mailer.postmark_settings = { :api_token => ENV["POSTMARK_TOKEN"] }
     config.action_mailer.default_url_options = { host: 'flashcards-62446.herokuapp.com' }
     # Settings in config/environments/* take precedence over those specified here.

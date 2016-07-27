@@ -21,4 +21,11 @@ class User < ApplicationRecord
       decks.order("RANDOM()").first.cards.review.first
     end
   end
+
+  def self.send_notification
+    users = User.joins(:cards).where('cards.review_date <= ?', Time.current).distinct!
+    users.each do |user|
+      NotificationsMailer.pending_cards_notification(user).deliver_now  
+    end
+  end
 end

@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'new user regitration' do
   scenario 'registration successful' do
     visit new_registration_path
+    fill_in 'registration[name]', with: 'zaza'
     fill_in 'registration[email]', with: 'aaa@bbb'
     fill_in 'registration[password]', with: '12345'
     fill_in 'registration[password_confirmation]', with: '12345'
@@ -13,6 +14,7 @@ feature 'new user regitration' do
 
   scenario 'registration failed' do
     visit new_registration_path
+    fill_in 'registration[name]', with: 'zaza'
     fill_in 'registration[email]', with: 'aaa@bbb'
     fill_in 'registration[password]', with: '12345'
     fill_in 'registration[password_confirmation]', with: '54321'

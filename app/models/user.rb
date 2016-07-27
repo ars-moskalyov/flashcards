@@ -10,6 +10,9 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :email, presence: true
   validates_uniqueness_of :email, case_sensitive: false
+  validates :locale, presence: true
+  validates :subscribe, presence: true
+  validates :name, presence: true
 
   def review_card
     if decks.exists? && default_deck_id

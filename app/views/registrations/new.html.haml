@@ -5,7 +5,9 @@
         %li
           = item
 = simple_form_for :registration, url: registration_path do |f|
+  = f.input :name, label: t('views.user.name'), error: false
   = f.input :email, label: t('views.user.email'), error: false
   = f.input :password, label: t('views.user.password'), error: false
   = f.input :password_confirmation, label: t('views.user.password_confirmation'), error: false
+  = f.input :subscribe, as: :boolean, input_html: { :checked => true }, label: t('views.user.subscribe')
   = f.button :submit, t('views.registration.save_user')

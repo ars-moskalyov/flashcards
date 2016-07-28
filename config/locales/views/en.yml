@@ -1,24 +1,4 @@
 en:
-  controllers:
-    application:
-      unsigned: 'You need log out before this action!'
-    deck:
-      create: 'Deck was successfully created.'
-      update: 'Deck was successfully updated.'
-      destroy: 'Deck was successfully deleted.'
-      set_default: 'Default deck set'
-    card:
-      create: 'Card was successfully created.'
-      update: 'Card was successfully updated.'
-      destroy: 'Card was successfully deleted.'
-    registration:
-      created: 'User created.'
-    session:
-      login_s: 'Login successful.'
-      login_f: 'Login failed.'
-      logout: 'Logged out.'
-    user:
-      updated: 'Profile was successfully updated.'
   views:
     layout:
       title: 'Flashcards'

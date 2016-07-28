@@ -11,10 +11,14 @@ RSpec.describe User, type: :model do
     it { should validate_confirmation_of :password }
     it { should validate_presence_of :email }
     it { should validate_uniqueness_of(:email).case_insensitive }
+    it { should validate_presence_of :name }
+    it { should validate_presence_of :locale }
+    it { should validate_presence_of :subscribe }
   end
   
   describe 'associations tests' do
     it { should have_many(:decks).dependent(:destroy) }
+    it { should have_many(:cards) }
   end
 
   describe '#review_card' do
@@ -36,6 +40,17 @@ RSpec.describe User, type: :model do
       @card = @user.review_card
       expect(@card.deck).to eq(@deck2)
       expect(@card.original_text).to eq 'deck2'
+    end
+  end
+
+  describe '.send_notification' do
+    it 'card to review exists' do
+      card = create(:card)
+      expect(User.send_notification).to eq([card.deck.user])
+    end
+
+    it 'card to review not exists' do
+      expect(User.send_notification).to eq([])
     end
   end
 end

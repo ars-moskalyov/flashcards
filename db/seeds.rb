@@ -1,7 +1,12 @@
 require 'open-uri'
 require 'nokogiri'
 
-user = User.create!(email: 'test@test', password: '12345', password_confirmation: '12345')
+user = User.create!(email: 'test@test',
+                    password: '12345',
+                    password_confirmation: '12345',
+                    locale: 'en',
+                    subscribe: true,
+                    name: 'zaza')
 puts "created user \nlogin: test@test \npassword: 12345"
 
 user.decks.create!(title: 'test deck', description: 'lorem ipsum')

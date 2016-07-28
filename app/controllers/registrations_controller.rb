@@ -7,6 +7,7 @@ class RegistrationsController < ApplicationController
 
   def create
     @user = User.new(registration_params)
+    @user.locale = I18n.locale
     if @user.save
       login(registration_params[:email], registration_params[:password])
       redirect_to root_path, notice: t('controllers.registration.created')
@@ -20,6 +21,8 @@ class RegistrationsController < ApplicationController
   def registration_params
     params.require(:registration).permit(:email,
                                          :password,
-                                         :password_confirmation)
+                                         :password_confirmation,
+                                         :name,
+                                         :subscribe)
   end
 end

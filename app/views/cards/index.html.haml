@@ -47,3 +47,5 @@
             = link_to t('.delete'), deck_card_path(params[:deck_id], card), method: :delete, data: { confirm: t('.confirm') }
 
   = f.button :submit, t('.review_now')
+.container{ align: 'center' }
+  = paginate @cards, :window => 2

@@ -3,7 +3,7 @@ class CardsController < ApplicationController
   before_action :set_card, only: [:edit, :update, :destroy]
 
   def index
-    @cards = deck.cards.all
+    @cards = deck.cards.page params[:page]
   end
 
   def new

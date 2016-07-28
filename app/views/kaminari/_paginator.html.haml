@@ -1,0 +1,6 @@
+= paginator.render do
+  %ul.pagination.pagination-sm
+    = prev_page_tag unless current_page.first?
+    - each_page do |page|
+      = page_tag page
+    = next_page_tag unless current_page.last?

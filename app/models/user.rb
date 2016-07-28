@@ -11,7 +11,8 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates_uniqueness_of :email, case_sensitive: false
   validates :locale, presence: true
-  validates :subscribe, presence: true
+  validates_inclusion_of :locale, in: I18n.available_locales.map { |locale| locale.to_s }
+  validates_inclusion_of :subscribe, in: [true, false]
   validates :name, presence: true
 
   def review_card
@@ -23,7 +24,7 @@ class User < ApplicationRecord
   end
 
   def self.send_notification
-    users = User.joins(:cards).where('cards.review_date <= ?', Time.current).distinct!
+    users = User.where(subscribe: true).joins(:cards).where('cards.review_date <= ?', Time.current).distinct!
     users.each do |user|
       NotificationsMailer.pending_cards_notification(user).deliver_now  
     end

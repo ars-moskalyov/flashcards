@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
     it { should validate_uniqueness_of(:email).case_insensitive }
     it { should validate_presence_of :name }
     it { should validate_presence_of :locale }
-    it { should validate_presence_of :subscribe }
+    it { should validate_inclusion_of(:locale).in_array(I18n.available_locales.map { |locale| locale.to_s }) }
   end
   
   describe 'associations tests' do

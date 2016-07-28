@@ -15,6 +15,7 @@ ru:
       mistake: 'Correctly but ' #!!!!
       wrong: 'Wrong' #!!!!
       answer: 'Ваш ответ:'
+      next: 'Следующая карточка'
     deck:
       all_decks: 'All decks:' #!!!!!!
       title: 'Title' #!!!!!!

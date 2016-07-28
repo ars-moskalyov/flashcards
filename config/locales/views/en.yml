@@ -14,15 +14,13 @@ en:
       no_cards: 'All cards are viewed.'
   trainer:
     review:
-      mistake: 'Correctly but ' #!!!!
+      mistake: 'Сorrect, but not accurate.'
       wrong: 'Wrong'
       answer: "Your answer: %{answer}"
       next: 'Next card'
   decks:
     index:
       all_decks: 'All decks:'
-      title: 'Title'
-      description: 'Description'
       edit: 'Edit'
       delete: 'Delete'
       default: 'Default'
@@ -37,8 +35,6 @@ en:
   cards:
     index:
       all_cards: 'All cards:'
-      original_text: 'Text'
-      translated_text: 'Translate'
       new_card: 'New card'
       review_date: 'Review date'
       edit: 'Edit'

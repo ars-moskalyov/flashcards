@@ -15,7 +15,7 @@ ru:
         subscribe: 'Подписка на рассылку'
       card:
         original_text: 'Текст'
-        translated_text: 'Превод'
+        translated_text: 'Перевод'
         texts: 'Текст и перевод'
         deck_id: 'Колода'
         image: 'Картинка'

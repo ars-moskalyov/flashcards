@@ -14,24 +14,22 @@ ru:
       no_cards: 'Все карточки просмотрены.'
   trainer:
     review:
-      mistake: 'Correctly but ' #!!!!
-      wrong: 'Wrong' #!!!!
+      mistake: 'Правильно, но не точно.'
+      wrong: 'Неправильно'
       answer: 'Ваш ответ:'
       next: 'Следующая карточка'
   decks:
     index:
-      all_decks: 'All decks:' #!!!!!!
-      title: 'Title' #!!!!!!
-      description: 'Description' #!!!!!!
-      edit: 'Edit' #!!!!!!
-      delete: 'Delete' #!!!!!!
-      default: 'Default' #!!!!!!
-      set_default: 'Set default' #!!!!!!
-      confirm: 'Are you sure?'
+      all_decks: 'Все колоды:'
+      edit: 'Редактировать'
+      delete: 'Удалить'
+      default: 'Текущая'
+      set_default: 'Сделать текущей'
+      confirm: 'Вы уверенны?'
     new:
       new_deck: 'Новая колода:'
     edit:
-      edit_deck: 'Изменить колоду:' #!!!!!!
+      edit_deck: 'Изменить колоду:'
     form:
       save_deck: 'Сохранить'
   cards:
@@ -43,8 +41,8 @@ ru:
       review_date: 'Дата пересмотра'
       edit: 'Редактировать'
       delete: 'Удалить'
-      review_now: 'Review now'
-      confirm: 'Are you sure?'
+      review_now: 'Пересмотреть сейчас'
+      confirm: 'Вы уверенны?'
     new:
       new_card: 'Новая карточка:'
       save_card: 'Сохранить карточку'

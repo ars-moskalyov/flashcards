@@ -1,15 +1,15 @@
 ru:
   application:
-    unsigned: 'You need log out before this action!' #!!!!
+    unsigned: 'Необходимо выйти перед данным действием.'
   decks:
     create:
-      create: 'Deck was successfully created.'  #!!!!
+      create: 'Колода добавлена.'
     update:
-      update: 'Deck was successfully updated.'  #!!!!
+      update: 'Колода обновлена.'
     destroy:
-      destroy: 'Deck was successfully deleted.' #!!!!
+      destroy: 'Колода удалена.'
     set_default:
-      default: 'Default deck set'           #!!!!!
+      default: 'Текущая колода установлена.'
   cards:
     create:
       create: 'Карточка добавлена.'
@@ -19,13 +19,13 @@ ru:
       destroy: 'Карточка удалена.'
   registrations:
     create:
-      create: 'User created.'     #!!!!
+      create: 'Вы зарегистрированы.'
   sessions:
     create:
-      login_s: 'Login successful.' #!!!!
-      login_f: 'Login failed.'     #!!!!
+      login_s: 'Вы авторизованы.'
+      login_f: 'Ошибка авторизации.'
     destroy:
-      logout: 'Logged out.'        #!!!!
+      logout: 'Пока.'
   users:
     update:
-      updated: 'Profile was successfully updated.' #!!!!!!
+      updated: 'Ваш профиль успешно обновлен.'

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
     if @user.save
-      redirect_to root_path, notice: t('controllers.user.updated')
+      redirect_to root_path, notice: t('.updated')
     else
       render :edit
     end

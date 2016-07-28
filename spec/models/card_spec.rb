@@ -21,7 +21,7 @@ RSpec.describe Card, type: :model do
       it "validate texts #{k}" do
         card = build(:card, original_text: 'rr',translated_text: v)
         expect(card.valid?).to be_falsey
-        expect(card.errors[:texts]).to include 'must be different'
+        expect(card.errors[:texts]).to include t('activerecord.errors.messages.different_texts')
       end
     end
   end

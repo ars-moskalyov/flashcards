@@ -17,7 +17,7 @@ class CardsController < ApplicationController
     @card = deck.cards.new(card_params)
 
     if @card.save
-      redirect_to deck_cards_path(params[:deck_id]), notice: t('controllers.card.create')
+      redirect_to deck_cards_path(params[:deck_id]), notice: t('.create')
     else
       render :new
     end
@@ -27,7 +27,7 @@ class CardsController < ApplicationController
     @card.update(card_params)
 
     if @card.save
-      redirect_to deck_cards_path(@card.deck_id), notice: t('controllers.card.update')
+      redirect_to deck_cards_path(@card.deck_id), notice: t('.update')
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class CardsController < ApplicationController
 
   def destroy
     @card.destroy
-    redirect_to deck_cards_path(@card.deck_id), notice: t('controllers.card.destroy')
+    redirect_to deck_cards_path(@card.deck_id), notice: t('.destroy')
   end
 
   def update_date

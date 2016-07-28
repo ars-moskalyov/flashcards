@@ -10,12 +10,12 @@ feature 'default deck' do
 
   scenario 'is set' do
     visit decks_path
-    page.first('a', text: I18n.t('views.deck.set_default')).click
-    expect(page).to have_content I18n.t('views.deck.default')
+    page.first('a', text: t('decks.index.set_default')).click
+    expect(page).to have_content I18n.t('decks.index.default')
   end
 
   scenario 'no set' do
     visit decks_path
-    expect(page).to have_content I18n.t('views.deck.set_default')
+    expect(page).to have_content I18n.t('decks.index.set_default')
   end
 end

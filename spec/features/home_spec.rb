@@ -24,21 +24,21 @@ feature 'review card on home page' do
     scenario 'no cards to review' do
       card.update(review_date: Time.now + 3.days)
       visit root_path
-      expect(page).to have_content I18n.t('views.home.no_cards')
+      expect(page).to have_content t('home.index.no_cards')
     end
 
     scenario 'answered correctly with mistake' do
       visit root_path
       fill_in 'trainer[answer]', with: 'rabit'
-      click_button I18n.t('views.home.answer')
-      expect(page).to have_content I18n.t('views.trainer.mistake')
+      click_button t('home.index.answer')
+      expect(page).to have_content t('trainer.review.mistake')
     end
 
     scenario 'answered incorrectly' do
       visit root_path
       fill_in 'trainer[answer]', with: 'wrong_answer'
-      click_button I18n.t('views.home.answer')
-      expect(page).to have_content I18n.t('views.trainer.wrong')
+      click_button t('home.index.answer')
+      expect(page).to have_content t('trainer.review.wrong')
     end
   end
 end

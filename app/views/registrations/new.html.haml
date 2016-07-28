@@ -4,10 +4,10 @@
       - @user.errors.full_messages.each do |item|
         %li
           = item
-= simple_form_for :registration, url: registration_path do |f|
-  = f.input :name, label: t('views.user.name'), error: false
-  = f.input :email, label: t('views.user.email'), error: false
-  = f.input :password, label: t('views.user.password'), error: false
-  = f.input :password_confirmation, label: t('views.user.password_confirmation'), error: false
-  = f.input :subscribe, as: :boolean, input_html: { :checked => true }, label: t('views.user.subscribe')
-  = f.button :submit, t('views.registration.save_user')
+= simple_form_for @user, url: registration_path do |f|
+  = f.input :name, error: false
+  = f.input :email, error: false
+  = f.input :password, error: false
+  = f.input :password_confirmation, error: false
+  = f.input :subscribe, as: :boolean, input_html: { :checked => true }
+  = f.button :submit, t('.save_user')

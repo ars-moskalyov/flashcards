@@ -1,0 +1,5 @@
+en:
+  activerecord:
+    errors:
+      messages:
+        different_texts: 'must be different'

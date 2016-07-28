@@ -17,7 +17,7 @@ class DecksController < ApplicationController
     @deck = current_user.decks.new(deck_params)
 
     if @deck.save
-      redirect_to decks_path, notice: t('controllers.deck.create')
+      redirect_to decks_path, notice: t('.create')
     else
       render :new
     end
@@ -27,7 +27,7 @@ class DecksController < ApplicationController
     @deck.update(deck_params)
 
     if @deck.save
-      redirect_to decks_path, notice: t('controllers.deck.update')
+      redirect_to decks_path, notice: t('.update')
     else
       render :edit
     end
@@ -35,12 +35,12 @@ class DecksController < ApplicationController
 
   def destroy
     @deck.destroy
-    redirect_to decks_path, notice: t('controllers.deck.destroy')
+    redirect_to decks_path, notice: t('.destroy')
   end
 
   def set_default
     current_user.update!(default_deck_id: params[:deck_id])
-    redirect_to decks_path, notice: t('controllers.deck.set_default')
+    redirect_to decks_path, notice: t('.default')
   end
 
   private

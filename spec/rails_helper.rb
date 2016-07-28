@@ -12,7 +12,7 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
-
+  config.include AbstractController::Translation
   config.before(:each, type: :feature) do
     page.driver.header 'Accept-Language', 'en'
   end

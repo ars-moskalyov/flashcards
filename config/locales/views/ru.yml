@@ -1,6 +1,6 @@
 ru:
-  views:
-    layout:
+  layouts:
+    application:
       title: 'Флэшкарточкер'
       add_deck: 'Добавить колоду'
       all_decks: 'Все колоды'
@@ -8,45 +8,57 @@ ru:
       register: 'Регистрация'
       login: 'Вход'
       edit_user: 'Профиль' 
-    home:
+  home:
+    index:
       answer: 'Ответ'
       no_cards: 'Все карточки просмотрены.'
-    trainer:
+  trainer:
+    review:
       mistake: 'Correctly but ' #!!!!
       wrong: 'Wrong' #!!!!
       answer: 'Ваш ответ:'
       next: 'Следующая карточка'
-    deck:
+  decks:
+    index:
       all_decks: 'All decks:' #!!!!!!
       title: 'Title' #!!!!!!
       description: 'Description' #!!!!!!
       edit: 'Edit' #!!!!!!
       delete: 'Delete' #!!!!!!
-      new_deck: 'New deck:' #!!!!!!
-      edit_deck: 'Edit deck:' #!!!!!!
-      save_deck: 'Save deck' #!!!!!!
       default: 'Default' #!!!!!!
       set_default: 'Set default' #!!!!!!
-    card:
+      confirm: 'Are you sure?'
+    new:
+      new_deck: 'Новая колода:'
+    edit:
+      edit_deck: 'Изменить колоду:' #!!!!!!
+    form:
+      save_deck: 'Сохранить'
+  cards:
+    index:
       all_cards: 'Все карточки:'
       original_text: 'Текст'
       translated_text: 'Перевод'
-      image_url: 'Image url'    #!!!!!!!!!!
-      image: 'Картинка'
-      deck: 'Колода'
+      new_card: 'Новая карточка'
       review_date: 'Дата пересмотра'
       edit: 'Редактировать'
       delete: 'Удалить'
-      new_card: 'Новая карточка:'
-      edit_card: 'Изменить карточку:'
-      save_card: 'Сохранить карточку'
       review_now: 'Review now'
-    registration:
+      confirm: 'Are you sure?'
+    new:
+      new_card: 'Новая карточка:'
+      save_card: 'Сохранить карточку'
+    edit:
+      edit_card: 'Изменить карточку:'
+      save_card: 'Сохранить карточку'  
+  registrations:
+    new:
       save_user: 'Зарегистрироваться'
-    user:
+  users:
+    edit:
+      save: 'Сохранить'
+  sessions:
+    new:
       email: 'Email'
       password: 'Пароль'
-      password_confirmation: 'Подтверждение пароля'
-      save: 'Сохранить'
-    session:
       sign_in: 'Войти'

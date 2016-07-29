@@ -29,7 +29,7 @@ class CardsController < ApplicationController
     if @card.save
       redirect_to deck_cards_path(@card.deck_id), notice: t('.update')
     else
-      render :edit
+      redirect_to edit_deck_card_path(params[:deck_id], @card), alert: @card.errors.full_messages.join('<br />')
     end
   end
 

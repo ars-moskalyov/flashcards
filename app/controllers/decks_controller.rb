@@ -29,7 +29,7 @@ class DecksController < ApplicationController
     if @deck.save
       redirect_to decks_path, notice: t('.update')
     else
-      render :edit
+      redirect_to edit_deck_path(@deck), alert: @deck.errors.full_messages.join('<br />')
     end
   end
 

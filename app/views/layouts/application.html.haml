@@ -29,6 +29,9 @@
         %h3.text-muted
           = link_to t('.title'), root_path
       %hr
+      - if alert
+        .alert.alert-danger
+          = alert.html_safe
       - if notice
         .alert.alert-info#alert
           = notice

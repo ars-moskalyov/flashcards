@@ -8,15 +8,15 @@ class SessionsController < ApplicationController
 
   def create
     if @user = login(session_params[:email], session_params[:password])
-      redirect_to root_path, notice: t('controllers.session.login_s')
+      redirect_to root_path, notice: t('.login_s')
     else
-      redirect_to :login, notice: t('controllers.session.login_f')
+      redirect_to :login, notice: t('.login_f')
     end
   end
 
   def destroy
     logout
-    redirect_to root_path, notice: t('controllers.session.logout')
+    redirect_to root_path, notice: t('.logout')
   end
 
   def locale

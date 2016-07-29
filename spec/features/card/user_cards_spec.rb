@@ -21,10 +21,10 @@ feature 'user' do
 
   scenario 'can edit his cards' do
     visit deck_cards_path(@user.decks.first.id)
-    click_link I18n.t('views.card.edit')
+    click_link t('cards.index.edit')
     fill_in 'card[original_text]', with: 'lorem ipsum'
-    click_button I18n.t('views.card.save_card')
-    expect(page).to have_content I18n.t('controllers.card.update')
+    click_button t('cards.edit.save_card')
+    expect(page).to have_content t('cards.update.update')
     expect(page).to have_content 'lorem ipsum'
   end
 
@@ -32,7 +32,7 @@ feature 'user' do
     date = Time.now.strftime('%d/%m/%Y')
     visit deck_cards_path(@user.decks.first.id)
     page.check("cards_")
-    click_button I18n.t('views.card.review_now')
+    click_button t('cards.index.review_now')
     expect(page).to have_content date
   end
 end

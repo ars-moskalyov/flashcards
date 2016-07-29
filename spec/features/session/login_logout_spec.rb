@@ -6,27 +6,27 @@ feature 'registred user' do
   context 'login' do
     scenario 'with correct login/password' do
       visit root_path
-      click_link I18n.t('views.layout.login')
+      click_link t('layouts.application.login')
       fill_in 'session[email]', with: 'qqq@www'
       fill_in 'session[password]', with: 'password'
-      click_button I18n.t('views.session.sign_in')
-      expect(page).to have_content I18n.t('controllers.session.login_s')
+      click_button t('sessions.new.sign_in')
+      expect(page).to have_content t('sessions.create.login_s')
     end
 
     scenario 'with incorrect login/password' do
       visit root_path
-      click_link I18n.t('views.layout.login')
+      click_link t('layouts.application.login')
       fill_in 'session[email]', with: 'qqq@zzz'
       fill_in 'session[password]', with: 'password'
-      click_button I18n.t('views.session.sign_in')
-      expect(page).to have_content I18n.t('controllers.session.login_f')
+      click_button t('sessions.new.sign_in')
+      expect(page).to have_content t('sessions.create.login_f')
     end
   end
 
   scenario 'logout' do
     login('qqq@www', 'password')
     visit root_path
-    click_link I18n.t('views.layout.logout')
-    expect(page).to have_content I18n.t('controllers.session.logout')
+    click_link t('layouts.application.logout')
+    expect(page).to have_content t('sessions.destroy.logout')
   end
 end

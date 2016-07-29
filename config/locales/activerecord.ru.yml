@@ -1,0 +1,25 @@
+ru:
+  activerecord:
+    errors:
+      messages:
+        blank: 'должно быть заполнено.'
+        too_short: 'слишком короткий.'
+        confirmation: 'и пароль должны совпадать.'
+        taken: 'занят.'
+        different_texts: 'должны отличаться'
+    attributes:
+      user:
+        name: 'Имя'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        subscribe: 'Подписка на рассылку'
+      card:
+        original_text: 'Текст'
+        translated_text: 'Перевод'
+        texts: 'Текст и перевод'
+        deck_id: 'Колода'
+        image: 'Картинка'
+        remote_image_url: 'URL картинки' 
+      deck:
+        title: 'Название'
+        description: 'Описание'

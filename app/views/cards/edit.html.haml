@@ -1,16 +1,10 @@
-- if @card.errors.any?
-  .alert.alert-danger
-    %ul
-      - @card.errors.full_messages.each do |item|
-        %li
-          = item
 %h4
-  = t('views.card.edit_card')
-= simple_form_for :card, url: :deck_card, method: :patch do |f|
-  = f.input :original_text, label: t('views.card.original_text'), error: false
-  = f.input :translated_text, label: t('views.card.translated_text'), error: false
-  = f.input :deck_id, collection: current_user.decks.map { |i| [i.title, i.id] }, include_blank: false, label: t('views.card.deck')
+  = t('.edit_card')
+= simple_form_for @card, url: :deck_card, method: :patch do |f|
+  = f.input :original_text, error: false
+  = f.input :translated_text, error: false
+  = f.input :deck_id, collection: current_user.decks.map { |i| [i.title, i.id] }, include_blank: false
   = image_tag @card.image if @card.image?
-  = f.input :remote_image_url, label: t('views.card.image_url')
-  = f.input :image, as: :file, label: t('views.card.image'), error: false
-  = f.button :submit, t('views.card.save_card')
+  = f.input :remote_image_url
+  = f.input :image, as: :file, error: false
+  = f.button :submit, t('.save_card')

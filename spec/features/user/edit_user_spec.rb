@@ -9,15 +9,15 @@ feature 'user can edit profile' do
   scenario 'user can change email' do
     visit edit_users_path
     fill_in 'user[email]', with: 'aaa@bbb'
-    click_button I18n.t('views.user.save')
-    expect(page).to have_content I18n.t('controllers.user.updated')
+    click_button t('users.edit.save')
+    expect(page).to have_content t('users.update.updated')
   end
 
   scenario 'user can change password' do
     visit edit_users_path
     fill_in 'user[password]', with: '12345'
     fill_in 'user[password_confirmation]', with: '12345'
-    click_button I18n.t('views.user.save')
-    expect(page).to have_content I18n.t('controllers.user.updated')
+    click_button t('users.edit.save')
+    expect(page).to have_content t('users.update.updated')
   end
 end

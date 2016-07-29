@@ -1,6 +1,6 @@
 en:
-  views:
-    layout:
+  layouts:
+    application:
       title: 'Flashcards'
       add_deck: 'New deck'
       all_decks: 'All decks'
@@ -8,44 +8,53 @@ en:
       register: 'Register'
       login: 'Login'
       edit_user: 'Edit profile'
-    home:
+  home:
+    index:
       answer: 'Answer'
       no_cards: 'All cards are viewed.'
-    trainer:
-      mistake: 'Correctly but ' #!!!!
+  trainer:
+    review:
+      mistake: 'Сorrect, but not accurate.'
       wrong: 'Wrong'
       answer: "Your answer: %{answer}"
-    deck:
+      next: 'Next card'
+  decks:
+    index:
       all_decks: 'All decks:'
-      title: 'Title'
-      description: 'Description'
       edit: 'Edit'
       delete: 'Delete'
-      new_deck: 'New deck:'
-      edit_deck: 'Edit deck:'
-      save_deck: 'Save deck'
       default: 'Default'
       set_default: 'Set default'
-    card:
+      confirm: 'Are you sure?'
+    new:
+      new_deck: 'New deck:'
+    edit:
+      edit_deck: 'Edit deck:'
+    form:
+      save_deck: 'Save deck'
+  cards:
+    index:
       all_cards: 'All cards:'
-      original_text: 'Text'
-      translated_text: 'Translate'
-      image_url: 'Image url'
-      image: 'Image'
-      deck: 'Deck'
+      new_card: 'New card'
       review_date: 'Review date'
       edit: 'Edit'
       delete: 'Delete'
+      review_now: 'Review now'
+      confirm: 'Are you sure?'
+    new:
       new_card: 'New card:'
+      save_card: 'Save card'
+    edit:
       edit_card: 'Edit card:'
       save_card: 'Save card'
-      review_now: 'Review now'
-    registration:
+  registrations:
+    new:
       save_user: 'Sign Up'      
-    user:
-      email: 'Email:'
-      password: 'Password:'
-      password_confirmation: 'Confirm password:'
+  users:
+    edit:
       save: 'Save'
-    session:
+  sessions:
+    new:
+      email: 'Email'
+      password: 'Password'
       sign_in: 'Sign in'

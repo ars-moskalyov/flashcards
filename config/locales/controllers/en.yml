@@ -1,21 +1,31 @@
 en:
-  controllers:
-    application:
-      unsigned: 'You need log out before this action!'
-    deck:
+  application:
+    unsigned: 'You need log out before this action!'
+  decks:
+    create:
       create: 'Deck was successfully created.'
+    update:
       update: 'Deck was successfully updated.'
+    destroy:
       destroy: 'Deck was successfully deleted.'
-      set_default: 'Default deck set'
-    card:
+    set_default:
+      default: 'Default deck set'
+  cards:
+    create:
       create: 'Card was successfully created.'
+    update:
       update: 'Card was successfully updated.'
+    destroy:
       destroy: 'Card was successfully deleted.'
-    registration:
-      created: 'User created.'
-    session:
+  registrations:
+    create:
+      create: 'User created.'
+  sessions:
+    create:
       login_s: 'Login successful.'
       login_f: 'Login failed.'
-      logout: 'Logged out.'
-    user:
+    destroy:
+      logout: 'Logged out.'  
+  users:
+    update:
       updated: 'Profile was successfully updated.'

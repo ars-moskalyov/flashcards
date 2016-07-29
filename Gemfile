@@ -22,6 +22,7 @@ gem 'asset_sync', '~> 1.1.0'
 gem 'damerau-levenshtein', '~> 1.1.3'
 gem 'postmark-rails', '~> 0.13.0'
 gem 'whenever', '~> 0.9.7', require: false
+gem 'kaminari', '~> 0.17.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri

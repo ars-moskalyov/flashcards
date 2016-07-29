@@ -1,7 +1,6 @@
 def login(email, password)
-  visit root_path
-  click_link I18n.t('views.layout.login')
+  visit login_path
   fill_in 'session[email]', with: email
   fill_in 'session[password]', with: password
-  click_button I18n.t('views.session.sign_in')
+  click_button t('sessions.new.sign_in')
 end

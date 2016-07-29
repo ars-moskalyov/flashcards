@@ -10,9 +10,9 @@
       = simple_form_for :trainer, url: trainer_review_path do |f|
         = f.input :answer, label: false
         = f.hidden_field :card_id, value: @card.id
-        = f.button :submit, t('views.home.answer')
+        = f.button :submit, t('.answer')
     - else
       %h3
-        = t('views.home.no_cards')
+        = t('.no_cards')
 - else
   %h3 simple flashcards app

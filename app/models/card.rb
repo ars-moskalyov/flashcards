@@ -22,7 +22,7 @@ class Card < ApplicationRecord
   def texts_must_be_diffirent
     if original_text && translated_text
       if original_text.mb_chars.downcase == translated_text.mb_chars.downcase
-        errors.add(:texts, 'must be different')
+        errors.add(:texts, I18n.t('activerecord.errors.messages.different_texts'))
       end
     end
   end

@@ -1,7 +1,7 @@
 %h4
-  = t('views.card.all_cards')
+  = t('.all_cards')
 %p
-  = link_to 'new card', new_deck_card_path(params[:deck_id])
+  = link_to t('.new_card'), new_deck_card_path(params[:deck_id])
 
 
 = simple_form_for :card, url: :update_date_deck_cards do |f|
@@ -11,11 +11,11 @@
         %th #
         %th
         %th
-          = t('views.card.original_text')
+          = t('.original_text')
         %th
-          = t('views.card.translated_text')
+          = t('.translated_text')
         %th
-          = t('views.card.review_date')
+          = t('.review_date')
         %th check
         %th effort
         %th
@@ -42,8 +42,10 @@
           %th
             = check_box_tag('cards[]', card.id, checked = false)
           %th
-            = link_to t('views.card.edit'), edit_deck_card_path(params[:deck_id], card)
+            = link_to t('.edit'), edit_deck_card_path(params[:deck_id], card)
           %th
-            = link_to t('views.card.delete'), deck_card_path(params[:deck_id], card), method: :delete, data: { confirm: 'Are you sure?' }
+            = link_to t('.delete'), deck_card_path(params[:deck_id], card), method: :delete, data: { confirm: t('.confirm') }
 
-  = f.button :submit, t('views.card.review_now')
+  = f.button :submit, t('.review_now')
+.container{ align: 'center' }
+  = paginate @cards, :window => 2
